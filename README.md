@@ -14,9 +14,9 @@ Curio Utility:
                 This port has the same limits has the original.
 
         CurioRubber:
-                Using the CURIOS ALL [<pattern>], allows you to mass rub
-                Use CRUB <pattern> to use. Will show a list of curios matching
-                and give a button to click to start the rubbing.
+                Using CRUB <pattern> will show a list of curios matching
+                via IG CURIOS ALL [<pattern>], and give a button to click to 
+                start the rubbing.
         
 
 Mapping Miniwindow:
@@ -32,8 +32,8 @@ Esteem to Essence:
         
         Use 'SESTEEM (TATTOO|REALM|POTEEN) <number>' to set these bonuses.
         
-        Tattoo uses weight, realm uses essence from inlfuencing one realmmob, and poteen uses '.5'.
-        You will need to reset poteen to 0 after it runs out.
+        Tattoo uses weight, realm uses essence from inlfuencing one realmmob, 
+        and poteen uses '.5'. You will need to reset poteen to 0 after it runs out.
         
         The system uses the formula found at: 
         
