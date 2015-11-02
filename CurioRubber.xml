@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- MuClient version 4.94 -->
+
+<muclient>
+<plugin
+   name="CurioRubber"
+   purpose="Curio Rubber for rubbing curios."
+   id="6cd6b2621c6841693cca239d"
+   language="Lua"
+   save_state="y"
+   requires="4.94"
+   version="1.0"
+   >
+
+</plugin>
+
+
+<!--  Get our standard constants -->
+
+<include name="constants.lua"/>
+
+<!--  Triggers  -->
+
+<triggers>
+  <trigger
+   group="CurioRubber"
+   enabled="n"
+   name="CurioRubberHeading"   
+   match="^\*+\[ All Curios \(\*.+\*\) \]\*+$"
+   regexp="y"
+   script="curioRubberHeading"
+   sequence="100"
+  >
+  </trigger>
+  
+  <trigger
+   group="CurioRubber"
+   enabled="n"
+   name="CurioRubberMore"   
+   match="^(Type MORE to continue reading\.)|(You continue reading\:)"
+   omit_from_output="y"
+   regexp="y"
+   script="curioRubberMore"
+   sequence="100"
+  >
+  </trigger>
+  
+  <trigger
+   group="CurioRubber"
+   enabled="n"
+   name="CurioRubberEnd"   
+   match="^Total Curios: "
+   regexp="y"
+   script="curioRubberEnd"
+   sequence="100"
+  >
+  </trigger>
+  
+  <trigger
+   group="CurioRubber"
+   enabled="n"
+   name="CurioRubberPieces"   
+   match="^(\d+)\s+(Rare|Piece)\s+(.+)"
+   regexp="y"
+   script="curioRubberPieces"
+   sequence="100"
+  >
+  </trigger>  
+</triggers>
+
+<!--  Aliases  -->
+
+<aliases>
+  <alias
+   group="CurioRubber"
+   enabled="y"
+   name="curioGetRubList"
+   match="crub (.+)"
+   regexp="y"
+   script="curioRubberStart"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<!--  Script  -->
+
+
+<script>
+<![CDATA[
+
+function curioRubberStart(name, line, wildcards)
+	
+	searchPattern = wildcards[1]
+	
+	EnableTrigger("CurioRubberHeading", true)
+	EnableTrigger("CurioRubberMore", true)
+	EnableTrigger("CurioRubberEnd", true)
+	EnableTrigger("CurioRubberPieces", true)
+	
+	Send("curios all " .. searchPattern)	
+	
+end
+
+function curioRubberHeading(name, line, wildcards)
+	curiosToRubTable = {}
+	rubIndex = 1
+	
+end
+
+function curioRubberMore(name, line, wildcards)
+
+	if wildcards[1] == "Type MORE to continue reading." then
+		Send("more")
+	end
+end
+
+function curioRubberEnd(name, line, wildcards)
+	EnableTrigger("CurioRubberHeading", false)
+	EnableTrigger("CurioRubberMore", false)
+	EnableTrigger("CurioRubberEnd", false)
+	EnableTrigger("CurioRubberPieces", false)
+ 
+	--make some space before you output the results
+	Note()
+	
+	ColourNote("steelblue", "", "You have requested to rub " .. #curiosToRubTable)
+	ColourTell("red", "", "You have the following curio ids in the rubber: ")
+	
+	for k, v in pairs (curiosToRubTable) do
+		ColourTell("red", "", v .. ", ")	
+	end
+	Note()
+	Hyperlink("!!6cd6b2621c6841693cca239d:curioRubberRub()", "Rub the above curios", "Rub the curios", "red", "")
+end
+
+function curioRubberRub()
+	
+	for key, curio in pairs(curiosToRubTable) do
+		Send("curio rub " .. curio)
+	end
+	
+end
+
+function curioRubberPieces(name, line, wildcards)
+
+
+	curioId = wildcards[1]
+	curioType = wildcards[2]
+	curioRest = wildcards[3] -- holds Set, Collection, Description
+	
+	curiosToRubTable[rubIndex] = curioId
+	rubIndex = rubIndex + 1
+	
+end
+
+
+]]>
+</script>
+</muclient>
