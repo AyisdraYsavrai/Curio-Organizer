@@ -1,13 +1,23 @@
 # Lusternia Plugins
 
 
-Curio Organizer:
+Curio Utility:
+        
+        Composed of the following:
+                CurioOrganizer
+                CurioRubber
+        
+       CurioOrganaizer:
+                MUSHclient port of Pejat's mudlet plugin. 
+                See the original thread 
+                (forums.lusternia.com/discussion/2147/mudlet-curio-organizer) for details. 
+                This port has the same limits has the original.
 
-        MUSHclient port of Pejat's mudlet plugin. 
-
-        See the original thread (forums.lusternia.com/discussion/2147/mudlet-curio-organizer) for details. 
-        This port has the same limits has the original.
-
+        CurioRubber:
+                Using the CURIOS ALL [<pattern>], allows you to mass rub
+                Use CRUB <pattern> to use. Will show a list of curios matching
+                and give a button to click to start the rubbing.
+        
 
 Mapping Miniwindow:
         
