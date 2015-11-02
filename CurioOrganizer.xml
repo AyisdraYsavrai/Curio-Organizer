@@ -29,7 +29,7 @@
   <trigger
    group="CurioOrganizer"
    enabled="y"
-   name="CurioPiecesStart"   
+   name="CurioOrganizerStart"   
    match="^\*+\[ Curio Pieces \]\*+$"
    regexp="y"
    script="curioStart"
@@ -40,7 +40,7 @@
   <trigger
    group="CurioOrganizer"
    enabled="n"
-   name="CurioPiecesMore"   
+   name="CurioOrganizerMore"   
    match="^(Type MORE to continue reading\.)|(You continue reading\:)"
    omit_from_output="y"
    regexp="y"
@@ -52,7 +52,7 @@
   <trigger
    group="CurioOrganizer"
    enabled="n"
-   name="CurioPiecesEnd"   
+   name="CurioOrganizerEnd"   
    match="^Total Curios: "
    regexp="y"
    script="curioEnd"
@@ -63,7 +63,7 @@
   <trigger
    group="CurioOrganizer"
    enabled="n"
-   name="CurioPiecesPieces"   
+   name="CurioOrganizerPieces"   
    match="^(\d+)\s+(Rare|Piece)\s+(.+)"
    omit_from_output="y"
    regexp="y"
@@ -74,22 +74,6 @@
 
   
 </triggers>
-
-<!--  Aliases  -->
-
-<aliases>
-  <alias
-   group="CurioOrganizer"
-   enabled="n"
-   name="curioBuilder"
-   match="curioBuildNow"
-   regexp="y"
-   script=""
-   ignore_case="y"
-   sequence="100"
-  >
-  </alias>
-</aliases>
 
 <!--  Script  -->
 
@@ -104,9 +88,9 @@ function curioStart(name, line, wildcards)
 	CurioTable.CollectionLength = 13
 	 
 	--enable the triggers that will read, autosend "more", and output the results
-	EnableTrigger("CurioPiecesMore", true)
-	EnableTrigger("CurioPiecesEnd", true)
-	EnableTrigger("CurioPiecesPieces", true)
+	EnableTrigger("CurioOrganizerMore", true)
+	EnableTrigger("CurioOrganizerEnd", true)
+	EnableTrigger("CurioOrganizerPieces", true)
 end
 
 function curioMore(name, line, wildcards)
@@ -119,9 +103,9 @@ end
 function curioEnd(name, line, wildcards)
 	--the data gathering has finished
 	--disable the triggers that read and autosent "more" and the trigger that is displaying the results right now
-	EnableTrigger("CurioPiecesMore", false)
-	EnableTrigger("CurioPiecesEnd", false)
-	EnableTrigger("CurioPiecesPieces", false)
+	EnableTrigger("CurioOrganizerMore", false)
+	EnableTrigger("CurioOrganizerEnd", false)
+	EnableTrigger("CurioOrganizerPieces", false)
  
 	--make some space before you output the results
 	Note()
