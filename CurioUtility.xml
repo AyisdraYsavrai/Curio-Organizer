@@ -427,7 +427,7 @@ function curioRubberEnd(name, line, wildcards)
 	--make some space before you output the results
 	Note()
 	
-	ColourNote("steelblue", "", "You have requested to rub " .. #curiosToRubTable)
+	ColourNote("steelblue", "", "You have requested to rub " .. #curiosToRubTable .. " curios.")
 	ColourTell("red", "", "You have the following curio ids in the rubber: ")
 	
 	for k, v in pairs (curiosToRubTable) do
