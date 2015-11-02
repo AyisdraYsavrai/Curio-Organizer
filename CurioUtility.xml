@@ -126,7 +126,7 @@
    group="CurioRubber"
    enabled="y"
    name="curioGetRubList"
-   match="crub (.+)"
+   match="^crub (.+)$"
    regexp="y"
    script="curioRubberStart"
    ignore_case="y"
@@ -441,7 +441,7 @@ end
 function curioRubberRub()
 	
 	for key, curio in pairs(curiosToRubTable) do
-		Note("curio rub " .. curio)
+		Send("curio rub " .. curio)
 	end
 	
 end
