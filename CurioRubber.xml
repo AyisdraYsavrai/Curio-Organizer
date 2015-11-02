@@ -134,6 +134,7 @@ function curioRubberEnd(name, line, wildcards)
 	end
 	Note()
 	Hyperlink("!!6cd6b2621c6841693cca239d:curioRubberRub()", "Rub the above curios", "Rub the curios", "red", "")
+	Note()
 end
 
 function curioRubberRub()
