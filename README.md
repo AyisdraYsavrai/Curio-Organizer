@@ -6,6 +6,10 @@ Curio Utility:
         Composed of the following:
                 CurioOrganizer
                 CurioRubber
+                *The organizer and rubber are also separate plugins if you only want one.
+		*Either have the organizer and rubber OR the utility. Having the Utility with
+		*either of the other two will throw an error.
+		***I'm not responsible for any misrubs***
         
        CurioOrganaizer:
                 MUSHclient port of Pejat's mudlet plugin. 
