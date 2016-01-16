@@ -6,21 +6,25 @@ Curio Utility:
         Composed of the following:
                 CurioOrganizer
                 CurioRubber
-                *The organizer and rubber are also separate plugins if you only want one.
-		*Either have the organizer and rubber OR the utility. Having the Utility with
-		*either of the other two will throw an error.
 		***I'm not responsible for any misrubs***
         
        CurioOrganaizer:
-                MUSHclient port of Pejat's mudlet plugin. 
-                See the original thread 
-                (forums.lusternia.com/discussion/2147/mudlet-curio-organizer) for details. 
-                This port has the same limits has the original.
+                Displays your curios pieces in a nice table.
+                If you have missing pieces, a missing pieces button will show
+                for you to click. Each double-digit number will also show you
+                what piece that is if you hover over it (clicking it will do
+                a CURIOS ALL on that piece...)
+                If you have all the pieces, a BuildMe button will show that
+                will build the curio in question.
+                NOTE: FOR THIS TO WORK, YOU NEED THE masterCurios.lua FILE.
+                PUT THIS FILE WHEREVER YOU PUT THE PLUGIN.
 
         CurioRubber:
-                Using CRUB <pattern> will show a list of curios matching
+                Using CRUB [SINGLE] <pattern> will show a list of curios matching
                 via IG CURIOS ALL [<pattern>], and give a button to click to 
-                start the rubbing.
+                start the rubbing. If you use the SINGLE word, the rubber will
+                only rub doubles of your <pattern>
+                **use rubber at own risk.**
         
 
 Mapping Miniwindow:
