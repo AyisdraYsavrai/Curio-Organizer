@@ -62,7 +62,7 @@
    group="CurioOrganizer"
    enabled="n"
    name="CurioOrganizerPieces"   
-   match="^(\d+)\s+(Rare|Piece)\s+(.+)"
+   match="^(\d+)\s+(Rare|Piece)\s+((?:\w|\s){0,21})\b\s+(\w+)\s+(.+)$"
    omit_from_output="y"
    regexp="y"
    script="curioOrganizerPieces"
@@ -109,7 +109,7 @@
    group="CurioRubber"
    enabled="n"
    name="CurioRubberPieces"   
-   match="^(\d+)\s+(Rare|Piece).+"
+   match="^(\d+)\s+(Rare|Piece)\s+((?:\w|\s){0,21})\b\s+(\w+)\s+(.+)$"
    regexp="y"
    script="curioRubberPieces"
    sequence="100"
@@ -126,7 +126,7 @@
    group="CurioRubber"
    enabled="y"
    name="curioGetRubList"
-   match="^crub (.+)$"
+   match="^crub (single )?(.+)?$"
    regexp="y"
    script="curioRubberStart"
    ignore_case="y"
@@ -142,11 +142,14 @@
 <script>
 <![CDATA[
 
+package.path = package.path .. ";" ..  GetPluginInfo(GetPluginID(), 20) .. "?.lua"
+require "masterCurios"
+
 function curioOrganizerStart(name, line, wildcards)
 	CurioTable = {}
-	CurioTable.Collections = {}
-	CurioTable.SetLength = 21 
-	CurioTable.CollectionLength = 13
+	pieceStringTable = {}
+	setLength = 21 
+	collectionLength = 13
 	 
 	--enable the triggers that will read, autosend "more", and output the results
 	EnableTrigger("CurioOrganizerMore", true)
@@ -170,149 +173,119 @@ function curioOrganizerEnd(name, line, wildcards)
  
 	--make some space before you output the results
 	Note()
-	for COCollectionName,COCollection in pairs(CurioTable.Collections) do
-		--display the name of the Collection and make a link to search for the collection
-		Hyperlink("curios all " .. COCollectionName,"["..COCollectionName.."]", "search for this collection", "steelblue", "", 0, true)
+	for collectionName, setTable in pairs(CurioTable) do
+		Hyperlink("curios all " .. collectionName,"["..collectionName.."]", "search for this collection", "steelblue", "", 0, true)
 		
-				 
-		--add some extra boarder but make it even with all the other boarders
-		for i = 1,52 - COCollectionName:len() do
-				ColourTell("steelblue", "", "=")
+		for i = 1,60 - collectionName:len() do
+			ColourTell("steelblue", "", "=")
 		end
-	 
-		--finish this line before you output all the sets
+		
 		Note()
-		 
-		--create a number of spaces equal to the size of SetLength + 3
-		for i = -2,CurioTable.SetLength do
-				Tell(" ")
+
+		for i = -1,setLength do
+			Tell(" ")
 		end
-	 
 		--output some indices for the pieces
-		--also indent the set
-		Note("R  a  b  c  d  e  f  g  h  i\n   ")
-		 
-		--output all the sets in this collection
-		for COSetName,COSet in pairs(COCollection) do
-			--output the name of the set with a link to search for that set
-			Hyperlink("curios all " .. COSetName, COSetName, "search for this set", "steelblue", "", 0, true)
+		Note("RR  01  02  03  04  05  06  07  08  09\n   ")
+		
+		for setName, pieceTable in pairs(setTable) do			
 			
+			Hyperlink("curios all " .. setName, setName, "search for this set", "steelblue", "", 0, true)
 			
-			Tell("   ")
-			--always start by listing the number of rare pieces in this set
-			if COSet["Rare"] ~= nil then
-				--color the output based on how many pieces we have
-				if COSet["Rare"].count == 1 then
-					--if we just have one, color it the normal gray
-					--show we have one, with a tooltop of the piece name, and a link that searches for that piece
-					Hyperlink("curios all " .. COSet["Rare"].name, "1", COSet["Rare"].name, "lightgray", "")
-				 
-					--create some space between this entry and the next entry
-					Tell("  ")
-				elseif COSet["Rare"].count > 1 and COSet["Rare"].count < 100 then
-					--if we have spares to share, color it green
-					--show how many we have, with a tooltop of the piece name, and a link that searches for that piece
-					Hyperlink("curios all " .. COSet["Rare"].name, COSet["Rare"].count, COSet["Rare"].name, "green", "")
-					
-					 
-					--create some space between this entry and the next entry
-					--two digit numbers need one space
-					--one digit numbes need two spaces
-					if COSet["Rare"].count >= 10 then
-						Tell(" ")
-					else
-						Tell("  ")
-					end
-				else
-					--you have more than 99 of this curio somehow
-					--show that this number is too big to display
-					--still has a tooltip with the piece's name and gives a link to search for the pieces
-					Hyperlink("curios all " .. COSet["Rare"].name, "#", COSet["Rare"].name, "lightgray", "")
-					
-					 
-					--create some space between this entry and the next entry
-					Tell("  ")
-				end 
-			else
-				--You do not have the rare piece. Put a red mark here with no link or tooltip
-				ColourTell("red", "", "-  ")
+			for i = setName:len(), setLength+1 do
+				Tell(" ")
 			end
-	 
-			--get ready to count how many types of regular pieces we are missing in this set
-			COMissingCount = 9
-	 
-			--output all the regular pieces in this set
-			for COPieceName,COPiece in pairs(COSet) do
-				--We have already seen the Rare Piece. Don't show the Rare.
-				if COPieceName ~= "Rare" then
-					--we have at least one of this piece. We are not missing this one.
-					COMissingCount = COMissingCount - 1
-	 
-					--color the output based on how many pieces we have
-					if COPiece.count == 1 then
-						--if we just have one, color it the normal gray
-						--show we have one, with a tooltop of the piece name, and a link that searches for that piece
-						Hyperlink("curios all " .. COPieceName, "1", COPieceName, "lightgray", "")
-						
-					 
-						--create some space between this entry and the next entry
-						Tell("  ")
-					elseif COPiece.count > 1 and COPiece.count < 100 then
-						--if we have spares to share, color it green
-						--show how many we have, with a tooltop of the piece name, and a link that searches for that piece
-						Hyperlink("curios all " .. COPieceName, COPiece.count, COPieceName, "green", "")
-						
-					 
-						--create some space between this entry and the next entry
-						--two digit numbers need one space
-						--one digit numbes need two spaces
-						if COPiece.count >= 10 then
-							Tell(" ")
-						else
-							Tell("  ")
-						end
-					else
-						--you have more than 99 of this curio somehow
-						--show that this number is too big to display
-						--still has a tooltip with the piece's name and gives a link to search for the pieces
-						Hyperlink("curios all " .. COPieceName, "#", COPieceName, "lightgray", "")
-						
-					 
-						--create some space between this entry and the next entry
-						Tell("  ")
-					end 
-				end
+			
+			for masterSet, _ in pairs(Curios) do
+				if string.find(masterSet, setName) ~= nil then
+					setName = masterSet
+				end				
 			end
-	 
-			--note all the pices that you don't have yet
-			--there are no tooltips or links to work with as we don't know what the pieces should be
-			for i = 1,COMissingCount do
-				ColourTell("red","", "-  ")
-			end
-	 
-			--check if you have every piece
-			if COMissingCount == 0 and COSet["Rare"] ~= nil then
-				--create a series of commands to build the curio
-				COBuildMeCommands = ""
-				pluginIDNum = "10c2d67a4b175a5886f234df"
+			pieceStringTable[setName] = {}
+			for pieceName, pieceValues in pairs(pieceTable) do	
 				
-				--attach each piece to the rare
-				for COPieceName,COPiece in pairs(COSet) do
-					
-					COBuildMeCommands = COBuildMeCommands .. "curio attach " .. COSet["Rare"].id .. " to " .. COPiece.id .. ";"					
-					
+				for key, value in pairs(Curios[setName]) do					
+					if string.find(key, pieceName) ~= nil then
+						pieceNumber = tonumber(value)
+					end
 				end
-				--display a message that shows the curio is ready
-				--it contains a link to build the curio and the tooltip informs the user what this will do
-				Hyperlink("!!10c2d67a4b175a5886f234df:curioBuildNow("..COBuildMeCommands..")", "Build Me!", "Instantly constructs the curio", "yellow", "")
+				
+				if pieceValues.count == nil then
+					pieceValues.count = 0
+				end
+				
+				if pieceValues["type"] == "Rare" then
+					pieceStringTable[setName][0] = pieceName .. "==" .. pieceValues.count
+				else
+					pieceStringTable[setName][pieceNumber] = pieceName .. "==" .. pieceValues.count
+				end
+				
+				
+			end	
+			buildCount = 0
+			for i = 0, 9 do 
+				if pieceStringTable[setName][i] == nil then
+					for p, n in pairs(Curios[setName]) do
+						if n == "Rare" then
+							n = 0
+						end
+						if i == tonumber(n) then
+							pieceStringTable[setName][i] = p .. "==" .. "0"
+							break
+						end
+					end					
+				end
+				
+				pieceNameCount = pieceStringTable[setName][i]
+				pieceName, value = string.match(pieceNameCount, "(.+)\=\=(.+)")
+				havePiece = pieceName
+		
+				Hyperlink("curios all " .. havePiece, string.format("%02d", value), havePiece, "lightgray", "")
+				Tell("  ")
+				
+				if tonumber(value) > 0 then
+					buildCount = buildCount + 1
+				end
 			end
-	 
-			--put a line between each curio set and indent the curio set
-			Note("\n\n   ")
-	 
+			--BUILD ME NOW HERE
+			if buildCount == 10 then
+				buildMeCommands = ""
+				buildTempCount = 0
+				buildTempId = ""
+				print(setName)
+				for buildPiece, buildValues in pairs(CurioTable[collectionName][setName]) do
+					
+					if buildTempCount == 0 then
+						buildTempId = buildValues.id
+						buildTempCount = 1
+					else
+						buildMeCommands = buildMeCommands .. "curio attach " .. buildTempId .. " to " .. buildValues.id .. ";"	
+					end					
+				end
+			
+				Hyperlink("!!10c2d67a4b175a5886f234df:curioBuildNow("..buildMeCommands..")", "Build Me!", "Instantly constructs the curio", "yellow", "")
+			else
+				missingPieces = setName .. ": "
+				for piece, number in pairs(Curios[setName]) do
+					foundPiece = "no"
+					for buildPiece, buildValues in pairs(CurioTable[collectionName][setName]) do
+						if string.find(piece, buildPiece) ~= nil then
+							foundPiece = "yes"
+							break
+						end
+					end	
+					if foundPiece == "no" then
+						missingPieces = missingPieces .. piece .. ", "						
+					end
+				end
+				
+				missingPieces = missingPieces:gsub(", $", "")
+				Hyperlink("!!10c2d67a4b175a5886f234df:curioMissingPieces("..missingPieces..")", "Missing Pieces", "Tells you missing pieces", "red", "")
+			end
+			
+			Note()
 		end
-			--put a line beteen each collection
-		Note()
+		Note()		
 	end
 end
 
@@ -326,76 +299,58 @@ function curioBuildNow(cmds)
 		index = index + 1
 	end
 	for key, curioCommand in pairs(curioBuildCommands) do
-		Send(curioCommand)
+		Note(curioCommand)
 	end
 	
 end
+
+function curioMissingPieces(pieceList)
+
+	ColourNote("red", "", "You are missing the following pieces of the " .. pieceList)
+end
+
 
 function curioOrganizerPieces(name, line, wildcards)
 
 
 	curioId = wildcards[1]
 	curioType = wildcards[2]
-	curioRest = wildcards[3] -- holds Set, Collection, Description
+	curioSet = wildcards[3]
+	curioCollection = wildcards[4]
+	curioPieceName = wildcards[5]
 	
-	--start by dicing up curioRest into the Set, Collection, and Description (the size of each piece can be set in Curio Organizer Start)
-	CurioTable.Set = string.sub(curioRest,1,CurioTable.SetLength)
-	CurioTable.Collection = string.sub(curioRest,CurioTable.SetLength+1,CurioTable.SetLength + CurioTable.CollectionLength)
-	CurioTable.Description = string.sub(curioRest,CurioTable.SetLength + CurioTable.CollectionLength+1)
-	 
-	--trim down each piece, removing outside spaces
-	--CurioTable.Set = CurioTable.Set:match "^%s*(.-)%s*$"
-	CurioTable.Collection = CurioTable.Collection:match "^%s*(.-)%s*$"
-	CurioTable.Description = CurioTable.Description:match "^%s*(.-)%s*$"
-	 
-	--start with the Collection. Be sure the Collection exists
-	if CurioTable.Collections[CurioTable.Collection] == nil then
-		--the collection did not exist yet. Create a table for this Collection
-		CurioTable.Collections[CurioTable.Collection] = {}
+	for masterSet, _ in pairs(Curios) do
+		if string.find(masterSet, curioSet) ~= nil then
+			curioSet = masterSet
+		end				
 	end
-	 
-	--next, be sure this Set exists
-	if CurioTable.Collections[CurioTable.Collection][CurioTable.Set] == nil then
-		--the Set within this Collection did not exist yet. Create a table for this Set
-		CurioTable.Collections[CurioTable.Collection][CurioTable.Set] = {}
+	
+	if CurioTable[curioCollection] == nil then
+		CurioTable[curioCollection] = {}
 	end
-	 
-	--is this piece a Rare?
-	if curioType == "Rare" then
-		--check to see if this Rare existed yet
-		if CurioTable.Collections[CurioTable.Collection][CurioTable.Set]["Rare"] == nil then
-			--the Rare within this Set did not exist yet. Create a table for this Rare
-			CurioTable.Collections[CurioTable.Collection][CurioTable.Set]["Rare"] = {}
-			--note down the description of the Rare
-			CurioTable.Collections[CurioTable.Collection][CurioTable.Set]["Rare"].name = CurioTable.Description
-			--note down the id of the first found Rare in this set
-			CurioTable.Collections[CurioTable.Collection][CurioTable.Set]["Rare"].id = curioId
-			--note down that we just found one of this Rare
-			CurioTable.Collections[CurioTable.Collection][CurioTable.Set]["Rare"].count = 1
-		else
-			--note that we found one more curio of this description
-			CurioTable.Collections[CurioTable.Collection][CurioTable.Set]["Rare"].count = CurioTable.Collections[CurioTable.Collection][CurioTable.Set]["Rare"].count + 1
-		end
-	else
-		--check to see if this piece existed yet
-		if CurioTable.Collections[CurioTable.Collection][CurioTable.Set][CurioTable.Description] == nil then
-			--the piece within this set did not exist yet. Create a table for this piece.
-			CurioTable.Collections[CurioTable.Collection][CurioTable.Set][CurioTable.Description] = {}
-			--note down the id of the first found curio with this description
-			CurioTable.Collections[CurioTable.Collection][CurioTable.Set][CurioTable.Description].id = curioId
-			--note down that we just found one of this curio
-			CurioTable.Collections[CurioTable.Collection][CurioTable.Set][CurioTable.Description].count = 1
-		else
-			--note that we found one more curio of this description
-			CurioTable.Collections[CurioTable.Collection][CurioTable.Set][CurioTable.Description].count = CurioTable.Collections[CurioTable.Collection][CurioTable.Set][CurioTable.Description].count + 1
-		end
+
+	if CurioTable[curioCollection][curioSet] == nil then
+		CurioTable[curioCollection][curioSet] = {}
 	end
+	
+	if CurioTable[curioCollection][curioSet][curioPieceName] == nil then
+		CurioTable[curioCollection][curioSet][curioPieceName] = {}
+		CurioTable[curioCollection][curioSet][curioPieceName].count = 0
+	end
+	
+	CurioTable[curioCollection][curioSet][curioPieceName].id = curioId
+	CurioTable[curioCollection][curioSet][curioPieceName]["type"] = curioType
+	CurioTable[curioCollection][curioSet][curioPieceName].name = curioPieceName
+	CurioTable[curioCollection][curioSet][curioPieceName].count = CurioTable[curioCollection][curioSet][curioPieceName].count + 1
 end
 
 
 function curioRubberStart(name, line, wildcards)
 	
-	searchPattern = wildcards[1]
+	searchPattern = wildcards[2]
+	rubMode = wildcards[1]
+	
+	rubHaveTable = {}
 	
 	EnableTrigger("CurioRubberHeading", true)
 	EnableTrigger("CurioRubberMore", true)
@@ -427,7 +382,7 @@ function curioRubberEnd(name, line, wildcards)
 	--make some space before you output the results
 	Note()
 	
-	ColourNote("steelblue", "", "You have requested to rub " .. #curiosToRubTable .. " curios.")
+	ColourNote("steelblue", "", "You have requested to rub " .. #curiosToRubTable .. " curios")
 	ColourTell("red", "", "You have the following curio ids in the rubber: ")
 	
 	for k, v in pairs (curiosToRubTable) do
@@ -448,8 +403,21 @@ end
 
 function curioRubberPieces(name, line, wildcards)
 	curioId = wildcards[1]
+	curioType = wildcards[2]
+	curioSet = wildcards[3]
+	curioCollection = wildcards[4]
+	curioPieceName = wildcards[5]
 	
-	curiosToRubTable[rubIndex] = curioId
+	if rubMode == "single " then
+		if rubHaveTable[curioPieceName] == "yes" then
+			curiosToRubTable[rubIndex] = curioId
+		else
+			rubHaveTable[curioPieceName] = "yes"
+		end
+	else	
+		curiosToRubTable[rubIndex] = curioId
+	end
+	
 	rubIndex = rubIndex + 1
 	
 end
