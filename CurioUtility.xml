@@ -11,7 +11,7 @@
    save_state="y"
    date_written="2015-10-29 21:03:38"
    requires="4.94"
-   version="1.0"
+   version="2.0"
    >
 
 </plugin>
@@ -196,11 +196,21 @@ function curioOrganizerEnd(name, line, wildcards)
 				Tell(" ")
 			end
 			
+			masterHaveCurio = "no"
 			for masterSet, _ in pairs(Curios) do
 				if string.find(masterSet, setName) ~= nil then
 					setName = masterSet
+					masterHaveCurio = "yes"
 				end				
 			end
+			
+			if masterHaveCurio == "no" then
+				ColourNote("red", "", "Curio - " .. setName .. " not in master list.")
+				Note()
+				break
+			end
+			
+			
 			pieceStringTable[setName] = {}
 			for pieceName, pieceValues in pairs(pieceTable) do	
 				
