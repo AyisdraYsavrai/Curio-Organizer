@@ -4633,4 +4633,18 @@ Curios =
 		["Eighth Cobalt Thread"] = "8",
 		["Ninth Cobalt Thread"] = "9",
 	},
+
+	["Short Brown Hair"] = 
+	{
+		["Base Of Short Brown Hair"] = "Rare",
+		["First Lock Of Short Brown Hair"] = "1",
+		["Second Lock Of Short Brown Hair"] = "2",
+		["Third Lock Of Short Brown Hair"] = "3",
+		["Fourth Lock Of Short Brown Hair"] = "4",
+		["Fifth Lock Of Short Brown Hair"] = "5",
+		["Sixth Lock Of Short Brown Hair"] = "6",
+		["Seventh Lock Of Short Brown Hair"] = "7",
+		["Eighth Lock Of Short Brown Hair"] = "8",
+		["Ninth Lock Of Short Brown Hair"] = "9",
+	},
 }
