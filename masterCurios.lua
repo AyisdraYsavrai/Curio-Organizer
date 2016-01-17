@@ -464,7 +464,7 @@ Curios =
 
 	["Copper Igasho"] = 
 	{
-		["Unknown"] = "1",
+		["Body"] = "1",
 		["Right Arm"] = "2",
 		["Left Arm"] = "3",
 		["Right Leg"] = "4",
@@ -1270,8 +1270,8 @@ Curios =
 		["Left Leg Of A Milkmaid Marionette"] = "5",
 		["Right Leg Of A Milkmaid Marionette"] = "6",
 		["Strings Of A Milkmaid Marionette"] = "7",
-		["Unknown Of A Milkmaid Marionette"] = "8",
-		["Unknown2 Of A Milkmaid Marionette"] = "9",
+		["Apron Of A Milkmaid Marionette"] = "8",
+		["Bottle Of A Milkmaid Marionette"] = "9",
 	},
 
 	["Moth Mask"] = 
