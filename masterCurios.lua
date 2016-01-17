@@ -56,7 +56,7 @@ Curios =
 		["Ninth Lock Of Azure Fins"] = "9",
 	},
 
-	["Black bubble"] = 
+	["Black Bubble"] = 
 	{
 		["Black Bubble Black Bubble Shell"] = "Rare",
 		["Black Bubble Fox Tail"] = "1",
