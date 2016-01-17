@@ -4619,5 +4619,18 @@ Curios =
 		["Eighth Saffron Bottle Shard"] = "8",
 		["Ninth Saffron Bottle Shard"] = "9",
 	},
-
+	
+	["Cobalt Bow"] = 
+	{
+		["Cobalt Knot"] = "Rare",
+		["First Cobalt Thread"] = "1",
+		["Second Cobalt Thread"] = "2",
+		["Third Cobalt Thread"] = "3",
+		["Fourth Cobalt Thread"] = "4",
+		["Fifth Cobalt Thread"] = "5",
+		["Sixth Cobalt Thread"] = "6",
+		["Seventh Cobalt Thread"] = "7",
+		["Eighth Cobalt Thread"] = "8",
+		["Ninth Cobalt Thread"] = "9",
+	},
 }
