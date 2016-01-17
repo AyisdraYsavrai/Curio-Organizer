@@ -109,7 +109,7 @@
    group="CurioRubber"
    enabled="n"
    name="CurioRubberPieces"   
-   match="^(\d+)\s+(Rare|Piece)\s+((?:\w|\s){0,21})\b\s+(\w+)\s+(.+)$"
+   match="^(\d+)\s+(Rare|Piece)\s+((?:\w|\s|\-){0,21})\b\s+(\w+)\s+(.+)$"
    regexp="y"
    script="curioRubberPieces"
    sequence="100"
