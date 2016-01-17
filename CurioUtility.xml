@@ -249,8 +249,14 @@ function curioOrganizerEnd(name, line, wildcards)
 				pieceNameCount = pieceStringTable[setName][i]
 				pieceName, value = string.match(pieceNameCount, "(.+)\=\=(.+)")
 				havePiece = pieceName
+				
+				if value == "0" then
+					haveColor = "red"
+				elseif value ~= "0" then
+					haveColor = "green"
+				end
 		
-				Hyperlink("curios all " .. havePiece, string.format("%02d", value), havePiece, "lightgray", "")
+				Hyperlink("curios all " .. havePiece, string.format("%02d", value), havePiece, haveColor, "")
 				Tell("  ")
 				
 				if tonumber(value) > 0 then
@@ -262,7 +268,7 @@ function curioOrganizerEnd(name, line, wildcards)
 				buildMeCommands = ""
 				buildTempCount = 0
 				buildTempId = ""
-				print(setName)
+				
 				for buildPiece, buildValues in pairs(CurioTable[collectionName][setName]) do
 					
 					if buildTempCount == 0 then
@@ -309,7 +315,7 @@ function curioBuildNow(cmds)
 		index = index + 1
 	end
 	for key, curioCommand in pairs(curioBuildCommands) do
-		Note(curioCommand)
+		Send(curioCommand)
 	end
 	
 end
