@@ -6,6 +6,7 @@ Curio Utility:
         Composed of the following:
                 CurioOrganizer
                 CurioRubber
+                CurioInfo
 		***I'm not responsible for any misrubs***
         
        CurioOrganaizer:
