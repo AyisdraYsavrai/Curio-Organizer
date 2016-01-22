@@ -138,7 +138,7 @@
    group="CurioInfo"
    enabled="y"
    name="curioInfoStart"
-   match="^cinfo (\w+(?:\s?\w+)?)$"
+   match="^cinfo (.+)$"
    regexp="y"
    script="curioInfoStart"
    ignore_case="y"
