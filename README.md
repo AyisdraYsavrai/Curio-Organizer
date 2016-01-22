@@ -25,6 +25,12 @@ Curio Utility:
                 start the rubbing. If you use the SINGLE word, the rubber will
                 only rub doubles of your <pattern>
                 **use rubber at own risk.**
+                
+        CurioInfo
+        	Using CINFO <curio|collection> will display the pieces in curio, or show
+        	possible curios if partial name is given. If given a collection, the curios
+        	in that collection will be displayed. All curios using this command are
+        	clickable.
         
 
 Mapping Miniwindow:
