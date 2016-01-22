@@ -5,13 +5,13 @@
 <muclient>
 <plugin
    name="CurioUtility"
-   purpose="Curio Organizer and Curio Rubber"
+   purpose="Curio Organizer, Rubber, and Lister"
    id="10c2d67a4b175a5886f234df"
    language="Lua"
    save_state="y"
    date_written="2015-10-29 21:03:38"
    requires="4.94"
-   version="2.0"
+   version="2.1"
    >
 
 </plugin>
@@ -133,6 +133,18 @@
    sequence="100"
   >
   </alias>
+  
+    <alias
+   group="CurioInfo"
+   enabled="y"
+   name="curioInfoStart"
+   match="^cinfo (\w+(?:\s?\w+)?)$"
+   regexp="y"
+   script="curioInfoStart"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
 
 </aliases>
 
@@ -215,8 +227,8 @@ function curioOrganizerEnd(name, line, wildcards)
 			for pieceName, pieceValues in pairs(pieceTable) do	
 				
 				for key, value in pairs(Curios[setName]) do					
-					if string.find(key, pieceName) ~= nil then
-						pieceNumber = tonumber(value)
+					if string.find(value, pieceName) ~= nil then
+						pieceNumber = tonumber(key)
 					end
 				end
 				
@@ -235,12 +247,12 @@ function curioOrganizerEnd(name, line, wildcards)
 			buildCount = 0
 			for i = 0, 9 do 
 				if pieceStringTable[setName][i] == nil then
-					for p, n in pairs(Curios[setName]) do
-						if n == "Rare" then
-							n = 0
+					for key, value in pairs(Curios[setName]) do
+						if key == 10 then
+							key = 0
 						end
-						if i == tonumber(n) then
-							pieceStringTable[setName][i] = p .. "==" .. "0"
+						if i == tonumber(key) then
+							pieceStringTable[setName][i] = value .. "==" .. "0"
 							break
 						end
 					end					
@@ -282,7 +294,7 @@ function curioOrganizerEnd(name, line, wildcards)
 				Hyperlink("!!10c2d67a4b175a5886f234df:curioBuildNow("..buildMeCommands..")", "Build Me!", "Instantly constructs the curio", "yellow", "")
 			else
 				missingPieces = setName .. ": "
-				for piece, number in pairs(Curios[setName]) do
+				for key, piece in pairs(Curios[setName]) do
 					foundPiece = "no"
 					for buildPiece, buildValues in pairs(CurioTable[collectionName][setName]) do
 						if string.find(piece, buildPiece) ~= nil then
@@ -325,7 +337,6 @@ function curioMissingPieces(pieceList)
 	ColourNote("red", "", "You are missing the following pieces of the " .. pieceList)
 end
 
-
 function curioOrganizerPieces(name, line, wildcards)
 
 
@@ -361,6 +372,7 @@ function curioOrganizerPieces(name, line, wildcards)
 end
 
 
+--Rubber
 function curioRubberStart(name, line, wildcards)
 	
 	searchPattern = wildcards[2]
@@ -435,6 +447,85 @@ function curioRubberPieces(name, line, wildcards)
 	end
 	
 	rubIndex = rubIndex + 1
+	
+end
+
+
+--Informer
+function curioInfoStart(name, line, wildcards)
+	
+	requestedInfo = curioCapitalizeFirstLetter(wildcards[1])
+	if CurioCollections[requestedInfo] then
+		curioList = ""
+		ColourNote("Green","","The " .. requestedInfo .. " collection has the following: ")
+		for i =1, #CurioCollections[requestedInfo] do
+			cuco = CurioCollections[requestedInfo][i]
+			Hyperlink("!!10c2d67a4b175a5886f234df:curioInfoGetCurio("..cuco..")", cuco, "List this curio's pieces", "steelblue", "", 0, true)
+			if i ~= #CurioCollections[requestedInfo] then
+				ColourTell("green","", ", ")
+			end
+		end
+		curioList = curioList:gsub("^..", "")
+		ColourNote("Green", "", curioList)
+	elseif Curios[requestedInfo] then
+		curioInfoGetCurio(requestedInfo)
+	else
+		ColourNote("red", "", "Unknown collection or set. Matching partial curios are: ")
+		foundSets = {}
+		for set, _ in pairs(Curios) do
+			if string.find(set, requestedInfo) then
+				table.insert(foundSets, set)
+			end
+		end
+		for i =1, #foundSets do
+			cmd = "cinfo " .. foundSets[i]
+			Hyperlink("!!10c2d67a4b175a5886f234df:Execute(".. cmd .. ")", foundSets[i], "List curios in this collection", "steelblue", "", 0, true)
+			if i ~= #foundSets then
+				ColourTell("green", "", ", ")
+			end
+		end
+		Note()
+		Note()
+		ColourNote("red", "", "The system has the following collections: ")
+		for col, _ in pairs(CurioCollections) do
+			cmd = "cinfo " .. col
+			Hyperlink("!!10c2d67a4b175a5886f234df:Execute(".. cmd .. ")", col, "List curios in this collection", "steelblue", "", 0, true)
+			
+			if next(CurioCollections, col) ~= nil then
+				ColourTell("green", "", ", ")
+			end
+		end
+		Note()
+		Note()
+	end
+
+	
+end
+
+function curioInfoGetCurio(curioToGet)
+
+	if Curios[curioToGet] == nil then
+		ColourNote("red", "", "requested curio " .. curioToGet .. " not in master list.")
+	else
+		pieceList = ""
+		for _, piece in pairs(Curios[curioToGet]) do
+			pieceList = pieceList .. ", " .. piece
+		end
+		pieceList = pieceList:gsub("^..", "")
+		ColourNote("green", "", "The ".. curioToGet .. " curio has the following pieces: " .. pieceList)
+	end
+
+end
+
+function curioCapitalizeFirstLetter(words)
+
+	properCurio = ""
+	for splitWords in words:gmatch("%S+") do
+		splitWords = splitWords:gsub("^(.)", string.upper)
+		properCurio = properCurio .. " " .. splitWords
+	end
+	properCurio = properCurio:gsub("^(%s)", "")
+	return properCurio
 	
 end
 
