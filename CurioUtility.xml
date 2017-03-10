@@ -134,7 +134,7 @@
   >
   </alias>
   
-    <alias
+  <alias
    group="CurioInfo"
    enabled="y"
    name="curioInfoStart"
@@ -210,7 +210,7 @@ function curioOrganizerEnd(name, line, wildcards)
 			
 			masterHaveCurio = "no"
 			for masterSet, _ in pairs(Curios) do
-				if string.find(masterSet, setName) ~= nil then
+				if string.find(masterSet, string.gsub(setName, "%-", "%%-")) ~= nil then
 					setName = masterSet
 					masterHaveCurio = "yes"
 				end				
@@ -227,7 +227,7 @@ function curioOrganizerEnd(name, line, wildcards)
 			for pieceName, pieceValues in pairs(pieceTable) do	
 				
 				for key, value in pairs(Curios[setName]) do					
-					if string.find(value, pieceName) ~= nil then
+					if string.find(value, string.gsub(pieceName, "%-", "%%-")) ~= nil then
 						pieceNumber = tonumber(key)
 					end
 				end
@@ -439,15 +439,14 @@ function curioRubberPieces(name, line, wildcards)
 	if rubMode == "single " then
 		if rubHaveTable[curioPieceName] == "yes" then
 			curiosToRubTable[rubIndex] = curioId
+			rubIndex = rubIndex + 1
 		else
 			rubHaveTable[curioPieceName] = "yes"
 		end
 	else	
 		curiosToRubTable[rubIndex] = curioId
-	end
-	
-	rubIndex = rubIndex + 1
-	
+		rubIndex = rubIndex + 1
+	end	
 end
 
 
@@ -497,9 +496,7 @@ function curioInfoStart(name, line, wildcards)
 		end
 		Note()
 		Note()
-	end
-
-	
+	end	
 end
 
 function curioInfoGetCurio(curioToGet)
