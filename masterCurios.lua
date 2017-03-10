@@ -159,7 +159,18 @@ CurioCollections =
 		"White Bubble", 	
 		"White Horns", 	
 		"Wild Pink Hair", 	
-		"Wispy Feathers", 
+		"Wispy Feathers",
+		
+		"Cooking Cup",
+		"Tailoring Thimble",
+		"Jewelry Chisel",
+		"Forging Tongs",
+		"Enchantment Focus",
+		"Alchemy Beaker",
+		"Poisons Funnel",
+		"Artisan Measuring Tape",
+		"Bookbinding Stylus",
+		"Tattoos Needle",
 	},
 	["Astro"] = 
 	{
@@ -462,6 +473,24 @@ CurioCollections =
 		"Gold Bottle",
 		"Saffron Bottle",
 	},
+	
+	["Kittens"] =
+	{
+		"Munchkin Kitten",
+		"Ragdoll Kitten",
+		"Sphynx Kitten",
+		"Calico	Kitten",
+	
+	},
+	
+	["Puppies"] =
+	{
+		"Corgi Puppy",
+		"Pompom Puppy",
+		"Pug Puppy",
+		"Husky Puppy",	
+	},	
+	
 }
 
 
@@ -5099,6 +5128,267 @@ Curios =
 		"Eighth Lock Of Short Brown Hair",
 		"Ninth Lock Of Short Brown Hair",
 		"Base Of Short Brown Hair",
+	},
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	["Cooking Cup"] =
+	{
+		"First Piece Of A Spectral Cup",
+		"Second Piece Of A Spectral Cup",
+		"Third Piece Of A Spectral Cup",
+		"Fourth Piece Of A Spectral Cup",
+		"Fifth Piece Of A Spectral Cup",
+		"Sixth Piece Of A Spectral Cup",
+		"Seventh Piece Of A Spectral Cup",
+		"Eighth Piece Of A Spectral Cup",
+		"Ninth Piece Of A Spectral Cup",
+		"Spectral Cup ?" 
+	},	
+	
+	["Tailoring Thimble"] = 
+	{
+		"First Piece Of A Spectral Thimble",
+		"Second Piece Of A Spectral Thimble",
+		"Third Piece Of A Spectral Thimble",
+		"Fourth Piece Of A Spectral Thimble",
+		"Fifth Piece Of A Spectral Thimble",
+		"Sixth Piece Of A Spectral Thimble",
+		"Seventh Piece Of A Spectral Thimble",
+		"Eighth Piece Of A Spectral Thimble",
+		"Ninth Piece Of A Spectral Thimble",
+		"Spectral Thimble Top"
+	},
+	
+	["Jewelry Chisel"] =
+	{
+		"First Piece Of A Spectral Chisel",
+		"Second Piece Of A Spectral Chisel",
+		"Third Piece Of A Spectral Chisel",
+		"Fourth Piece Of A Spectral Chisel",
+		"Fifth Piece Of A Spectral Chisel",
+		"Sixth Piece Of A Spectral Chisel",
+		"Seventh Piece Of A Spectral Chisel",
+		"Eighth Piece Of A Spectral Chisel",
+		"Ninth Piece Of A Spectral Chisel",
+		"Spectral Chisel ?",
+	},
+	
+	["Forging Tongs"] =
+	{
+		"First Piece Of A Spectral Tongs",
+		"Second Piece Of A Spectral Tongs",
+		"Third Piece Of A Spectral Tongs",
+		"Fourth Piece Of A Spectral Tongs",
+		"Fifth Piece Of A Spectral Tongs",
+		"Sixth Piece Of A Spectral Tongs",
+		"Seventh Piece Of A Spectral Tongs",
+		"Eighth Piece Of A Spectral Tongs",
+		"Ninth Piece Of A Spectral Tongs",
+		"Spectral Tongs Clasp",
+	},
+	
+	["Enchantment Focus"] =
+	{
+		"First Piece Of A Spectral Focus",
+		"Second Piece Of A Spectral Focus",
+		"Third Piece Of A Spectral Focus",
+		"Fourth Piece Of A Spectral Focus",
+		"Fifth Piece Of A Spectral Focus",
+		"Sixth Piece Of A Spectral Focus",
+		"Seventh Piece Of A Spectral Focus",
+		"Eighth Piece Of A Spectral Focus",
+		"Ninth Piece Of A Spectral Focus",
+		"Spectral Focus ?",
+	},
+	
+	["Alchemy Beaker"] =
+	{
+		"First Piece Of A Spectral Beaker",
+		"Second Piece Of A Spectral Beaker",
+		"Third Piece Of A Spectral Beaker",
+		"Fourth Piece Of A Spectral Beaker",
+		"Fifth Piece Of A Spectral Beaker",
+		"Sixth Piece Of A Spectral Beaker",
+		"Seventh Piece Of A Spectral Beaker",
+		"Eighth Piece Of A Spectral Beaker",
+		"Ninth Piece Of A Spectral Beaker",
+		"Spectral Beaker ?",
+	},
+	
+	["Poisons Funnel"] =
+	{
+		"First Piece Of A Spectral Beaker",
+		"Second Piece Of A Spectral Beaker",
+		"Third Piece Of A Spectral Beaker",
+		"Fourth Piece Of A Spectral Beaker",
+		"Fifth Piece Of A Spectral Beaker",
+		"Sixth Piece Of A Spectral Beaker",
+		"Seventh Piece Of A Spectral Beaker",
+		"Eighth Piece Of A Spectral Beaker",
+		"Ninth Piece Of A Spectral Beaker",
+		"Spectral Beaker ?",
+	},
+	
+	["Artisan Measuring Tape"] =
+	{
+		"First Piece Of A Spectral Tape",
+		"Second Piece Of A Spectral Tape",
+		"Third Piece Of A Spectral Tape",
+		"Fourth Piece Of A Spectral Tape",
+		"Fifth Piece Of A Spectral Tape",
+		"Sixth Piece Of A Spectral Tape",
+		"Seventh Piece Of A Spectral Tape",
+		"Eighth Piece Of A Spectral Tape",
+		"Ninth Piece Of A Spectral Tape",
+		"Spectral Tape ?",
+	},
+	
+	["Bookbinding Stylus"] =
+	{
+		"First Piece Of A Spectral Stylus",
+		"Second Piece Of A Spectral Stylus",
+		"Third Piece Of A Spectral Stylus",
+		"Fourth Piece Of A Spectral Stylus",
+		"Fifth Piece Of A Spectral Stylus",
+		"Sixth Piece Of A Spectral Stylus",
+		"Seventh Piece Of A Spectral Stylus",
+		"Eighth Piece Of A Spectral Stylus",
+		"Ninth Piece Of A Spectral Stylus",
+		"Spectral Stylus ?",
+	},
+	
+	["Tattoos Needle"] =
+	{
+		"First Piece Of A Spectral Needle",
+		"Second Piece Of A Spectral Needle",
+		"Third Piece Of A Spectral Needle",
+		"Fourth Piece Of A Spectral Needle",
+		"Fifth Piece Of A Spectral Needle",
+		"Sixth Piece Of A Spectral Needle",
+		"Seventh Piece Of A Spectral Needle",
+		"Eighth Piece Of A Spectral Needle",
+		"Ninth Piece Of A Spectral Needle",
+		"Spectral Needle ?",
+	},
+	
+	["Munchkin Kitten"] =
+	{
+		"Munchikin Kitten Eyes",
+		"Munchikin Kitten Body",
+		"Munchikin Kitten Right Front Leg",
+		"Munchikin Kitten Right Hind Leg",
+		"Munchikin Kitten Left Front Leg",
+		"Munchikin Kitten Left Hind Leg",
+		"Munchikin Kitten Tail",
+		"Munchikin Kitten Head",
+		"Munchikin Kitten Whiskers",
+		"Munchikin Kitten Heart",
+	},
+		
+	["Ragdoll Kitten"] =
+	{
+		"Ragdoll Kitten Eyes",
+		"Ragdoll Kitten Body",
+		"Ragdoll Kitten Right Front Leg",
+		"Ragdoll Kitten Right Hind Leg",
+		"Ragdoll Kitten Left Front Leg",
+		"Ragdoll Kitten Left Hind Leg",
+		"Ragdoll Kitten Tail",
+		"Ragdoll Kitten Head",
+		"Ragdoll Kitten Whiskers",
+		"Ragdoll Kitten Heart",	
+	},	
+
+	["Sphynx Kitten"] =
+	{
+		"Sphynx Kitten Eyes",
+		"Sphynx Kitten Body",
+		"Sphynx Kitten Right Front Leg",
+		"Sphynx Kitten Right Hind Leg",
+		"Sphynx Kitten Left Front Leg",
+		"Sphynx Kitten Left Hind Leg",
+		"Sphynx Kitten Tail",
+		"Sphynx Kitten Head",
+		"Sphynx Kitten Whiskers",
+		"Sphynx Kitten Heart",	
+	},	
+	
+	["Calico Kitten"] =
+	{
+		"Calico Kitten Eyes",
+		"Calico Kitten Body",
+		"Calico Kitten Right Front Leg",
+		"Calico Kitten Right Hind Leg",
+		"Calico Kitten Left Front Leg",
+		"Calico Kitten Left Hind Leg",
+		"Calico Kitten Tail",
+		"Calico Kitten Head",
+		"Calico Kitten Whiskers",
+		"Calico Kitten Heart",	
+	},
+	
+	["Corgi Puppy"] =
+	{
+		"Corgi Puppy Eyes",
+		"Corgi Puppy Body",
+		"Corgi Puppy Right Front Leg",
+		"Corgi Puppy Right Hind Leg",
+		"Corgi Puppy Left Front Leg",
+		"Corgi Puppy Left Hind Leg",
+		"Corgi Puppy Tail",
+		"Corgi Puppy Head",
+		"Corgi Puppy Tongue",
+		"Corgi Puppy Heart",
+	},
+		
+	["Pompom Puppy"] =
+	{
+		"Pompom Puppy Eyes",
+		"Pompom Puppy Body",
+		"Pompom Puppy Right Front Leg",
+		"Pompom Puppy Right Hind Leg",
+		"Pompom Puppy Left Front Leg",
+		"Pompom Puppy Left Hind Leg",
+		"Pompom Puppy Tail",
+		"Pompom Puppy Head",
+		"Pompom Puppy Tongue",
+		"Pompom Puppy Heart",	
+	},	
+
+	["Pug Puppy"] =
+	{
+		"Pug Puppy Eyes",
+		"Pug Puppy Body",
+		"Pug Puppy Right Front Leg",
+		"Pug Puppy Right Hind Leg",
+		"Pug Puppy Left Front Leg",
+		"Pug Puppy Left Hind Leg",
+		"Pug Puppy Tail",
+		"Pug Puppy Head",
+		"Pug Puppy Tongue",
+		"Pug Puppy Heart",	
+	},	
+	
+	["Husky Puppy"] =
+	{
+		"Husky Puppy Eyes",
+		"Husky Puppy Body",
+		"Husky Puppy Right Front Leg",
+		"Husky Puppy Right Hind Leg",
+		"Husky Puppy Left Front Leg",
+		"Husky Puppy Left Hind Leg",
+		"Husky Puppy Tail",
+		"Husky Puppy Head",
+		"Husky Puppy Tongue",
+		"Husky Puppy Heart",	
 	},
 
 }
