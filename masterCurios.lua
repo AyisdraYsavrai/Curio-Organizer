@@ -160,6 +160,7 @@ CurioCollections =
 		"White Horns", 	
 		"Wild Pink Hair", 	
 		"Wispy Feathers",
+		"Outrageous Mullet",
 		
 		"Cooking Cup",
 		"Tailoring Thimble",
@@ -167,10 +168,10 @@ CurioCollections =
 		"Forging Tongs",
 		"Enchantment Focus",
 		"Alchemy beaker",
-		"Poisons Funnel",
+		"Poison Funnel",
 		"Artisan Measuring Tape",
 		"Bookbinding Stylus",
-		"Tattoos Needle",
+		"Tattoo Needle",
 	},
 	["Astro"] = 
 	{
@@ -473,6 +474,55 @@ CurioCollections =
 		"Gold Bottle",
 		"Saffron Bottle",
 	},
+	
+	["Materialization"] = 
+	{
+		"Radiant Jewel",
+		"Shining  Jewel",
+		"Brilliant  Jewel",
+		"Dawn  Jewel",	
+	},
+	
+	["Dematerialization"] = 
+	{
+		"Heliotrope Jewel",
+		"Midnight Jewel",
+		"Dusk Jewel",
+		"Sky Jewel",
+	},
+	
+	["Catluck"] = 
+	{
+		"Tiger Jewel",
+		"Lynx Jewel",
+		"Lion Jewel",
+		"Panther  Jewel",
+	},
+	
+	["Unseen"] = 
+	{
+		"White Jewel",
+		"Snow Jewel",
+		"Glass Jewel",
+		"Halcyon Jewel",
+	},
+	
+	["Braveheart"] = 
+	{
+		"Saffron Jewel",
+		"Amber Jewel",
+		"Golden Jewel",
+		"Citrine Jewel",
+	},
+	
+	["Whiplash"] = 
+	{
+		"Fire Jewel",
+		"Maroon Jewel",
+		"Scarlet Jewel",
+		"Crimson Jewel",
+	},
+	
 	
 	["Kittens"] =
 	{
@@ -5130,14 +5180,355 @@ Curios =
 		"Base Of Short Brown Hair",
 	},
 	
+	["Outrageous Mullet"] = 
+	{
+		"First Lock Of Outrageous Mullet",
+		"Second Lock Of Outrageous Mullet",
+		"Third Lock Of Outrageous Mullet",
+		"Fourth Lock Of Outrageous Mullet",
+		"Fifth Lock Of Outrageous Mullet",
+		"Sixth Lock Of Outrageous Mullet",
+		"Seventh Lock Of Outrageous Mullet",
+		"Eighth Lock Of Outrageous Mullet",
+		"Ninth Lock Of Outrageous Mullet",
+		"Base Of Outrageous Mullet",
+	},
 	
+	["Radiant Jewel"] = 
+	{
+		"First Shard Of A Radiant Jewel",
+		"Second Shard Of A Radiant Jewel",
+		"Third Shard Of A Radiant Jewel",
+		"Fourth Shard Of A Radiant Jewel",
+		"Fifth Shard Of A Radiant Jewel",
+		"Sixth Shard Of A Radiant Jewel",
+		"Seventh Shard Of A Radiant Jewel",
+		"Eighth Shard Of A Radiant Jewel",
+		"Ninth Shard Of A Radiant Jewel",
+		"Radiant Jewel Clasp",
+	},
 	
+	["Shining Jewel"] = 
+	{
+		"First Shard Of A Shining Jewel",
+		"Second Shard Of A Shining Jewel",
+		"Third Shard Of A Shining Jewel",
+		"Fourth Shard Of A Shining Jewel",
+		"Fifth Shard Of A Shining Jewel",
+		"Sixth Shard Of A Shining Jewel",
+		"Seventh Shard Of A Shining Jewel",
+		"Eighth Shard Of A Shining Jewel",
+		"Ninth Shard Of A Shining Jewel",
+		"Shining Jewel Clasp",
+	},
+
+	["Brilliant Jewel"] = 
+	{
+		"First Shard Of A Brilliant Jewel",
+		"Second Shard Of A Brilliant Jewel",
+		"Third Shard Of A Brilliant Jewel",
+		"Fourth Shard Of A Brilliant Jewel",
+		"Fifth Shard Of A Brilliant Jewel",
+		"Sixth Shard Of A Brilliant Jewel",
+		"Seventh Shard Of A Brilliant Jewel",
+		"Eighth Shard Of A Brilliant Jewel",
+		"Ninth Shard Of A Brilliant Jewel",
+		"Brilliant Jewel Clasp",
+	},
 	
+	["Dawn Jewel"] = 
+	{
+		"First Shard Of A Dawn Jewel",
+		"Second Shard Of A Dawn Jewel",
+		"Third Shard Of A Dawn Jewel",
+		"Fourth Shard Of A Dawn Jewel",
+		"Fifth Shard Of A Dawn Jewel",
+		"Sixth Shard Of A Dawn Jewel",
+		"Seventh Shard Of A Dawn Jewel",
+		"Eighth Shard Of A Dawn Jewel",
+		"Ninth Shard Of A Dawn Jewel",
+		"Dawn Jewel Clasp",
+	},
 	
+	["Heliotrope Jewel"] = 
+	{
+		"First Shard Of A Heliotrope Jewel",
+		"Second Shard Of A Heliotrope Jewel",
+		"Third Shard Of A Heliotrope Jewel",
+		"Fourth Shard Of A Heliotrope Jewel",
+		"Fifth Shard Of A Heliotrope Jewel",
+		"Sixth Shard Of A Heliotrope Jewel",
+		"Seventh Shard Of A Heliotrope Jewel",
+		"Eighth Shard Of A Heliotrope Jewel",
+		"Ninth Shard Of A Heliotrope Jewel",
+		"Heliotrope Jewel Clasp",
+	},
 	
+	["Midnight Jewel"] = 
+	{
+		"First Shard Of A Midnight Jewel",
+		"Second Shard Of A Midnight Jewel",
+		"Third Shard Of A Midnight Jewel",
+		"Fourth Shard Of A Midnight Jewel",
+		"Fifth Shard Of A Midnight Jewel",
+		"Sixth Shard Of A Midnight Jewel",
+		"Seventh Shard Of A Midnight Jewel",
+		"Eighth Shard Of A Midnight Jewel",
+		"Ninth Shard Of A Midnight Jewel",
+		"Midnight Jewel Clasp",
+	},
 	
+	["Dusk Jewel"] = 
+	{
+		"First Shard Of A Dusk Jewel",
+		"Second Shard Of A Dusk Jewel",
+		"Third Shard Of A Dusk Jewel",
+		"Fourth Shard Of A Dusk Jewel",
+		"Fifth Shard Of A Dusk Jewel",
+		"Sixth Shard Of A Dusk Jewel",
+		"Seventh Shard Of A Dusk Jewel",
+		"Eighth Shard Of A Dusk Jewel",
+		"Ninth Shard Of A Dusk Jewel",
+		"Dusk Jewel Clasp",
+	},
 	
+	["Sky Jewel"] = 
+	{
+		"First Shard Of A Sky Jewel",
+		"Second Shard Of A Sky Jewel",
+		"Third Shard Of A Sky Jewel",
+		"Fourth Shard Of A Sky Jewel",
+		"Fifth Shard Of A Sky Jewel",
+		"Sixth Shard Of A Sky Jewel",
+		"Seventh Shard Of A Sky Jewel",
+		"Eighth Shard Of A Sky Jewel",
+		"Ninth Shard Of A Sky Jewel",
+		"Sky Jewel Clasp",
+	},
 	
+	["Tiger Jewel"] = 
+	{
+		"First Shard Of A Tiger Jewel",
+		"Second Shard Of A Tiger Jewel",
+		"Third Shard Of A Tiger Jewel",
+		"Fourth Shard Of A Tiger Jewel",
+		"Fifth Shard Of A Tiger Jewel",
+		"Sixth Shard Of A Tiger Jewel",
+		"Seventh Shard Of A Tiger Jewel",
+		"Eighth Shard Of A Tiger Jewel",
+		"Ninth Shard Of A Tiger Jewel",
+		"Tiger Jewel Clasp",
+	},
+	
+	["Lynx Jewel"] = 
+	{
+		"First Shard Of A Lynx Jewel",
+		"Second Shard Of A Lynx Jewel",
+		"Third Shard Of A Lynx Jewel",
+		"Fourth Shard Of A Lynx Jewel",
+		"Fifth Shard Of A Lynx Jewel",
+		"Sixth Shard Of A Lynx Jewel",
+		"Seventh Shard Of A Lynx Jewel",
+		"Eighth Shard Of A Lynx Jewel",
+		"Ninth Shard Of A Lynx Jewel",
+		"Lynx Jewel Clasp",
+	},
+	
+	["Lion Jewel"] = 
+	{
+		"First Shard Of A Lion Jewel",
+		"Second Shard Of A Lion Jewel",
+		"Third Shard Of A Lion Jewel",
+		"Fourth Shard Of A Lion Jewel",
+		"Fifth Shard Of A Lion Jewel",
+		"Sixth Shard Of A Lion Jewel",
+		"Seventh Shard Of A Lion Jewel",
+		"Eighth Shard Of A Lion Jewel",
+		"Ninth Shard Of A Lion Jewel",
+		"Lion Jewel Clasp",
+	},
+	
+	["Panther Jewel"] = 
+	{
+		"First Shard Of A Panther Jewel",
+		"Second Shard Of A Panther Jewel",
+		"Third Shard Of A Panther Jewel",
+		"Fourth Shard Of A Panther Jewel",
+		"Fifth Shard Of A Panther Jewel",
+		"Sixth Shard Of A Panther Jewel",
+		"Seventh Shard Of A Panther Jewel",
+		"Eighth Shard Of A Panther Jewel",
+		"Ninth Shard Of A Panther Jewel",
+		"Panther Jewel Clasp",
+	},
+	
+	["Snow Jewel"] = 
+	{
+		"First Shard Of A Snow Jewel",
+		"Second Shard Of A Snow Jewel",
+		"Third Shard Of A Snow Jewel",
+		"Fourth Shard Of A Snow Jewel",
+		"Fifth Shard Of A Snow Jewel",
+		"Sixth Shard Of A Snow Jewel",
+		"Seventh Shard Of A Snow Jewel",
+		"Eighth Shard Of A Snow Jewel",
+		"Ninth Shard Of A Snow Jewel",
+		"Snow Jewel Clasp",
+	},
+	
+	["White Jewel"] = 
+	{
+		"First Shard Of A White Jewel",
+		"Second Shard Of A White Jewel",
+		"Third Shard Of A White Jewel",
+		"Fourth Shard Of A White Jewel",
+		"Fifth Shard Of A White Jewel",
+		"Sixth Shard Of A White Jewel",
+		"Seventh Shard Of A White Jewel",
+		"Eighth Shard Of A White Jewel",
+		"Ninth Shard Of A White Jewel",
+		"White Jewel Clasp",
+	},
+	
+	["Glass Jewel"] = 
+	{
+		"First Shard Of A Glass Jewel",
+		"Second Shard Of A Glass Jewel",
+		"Third Shard Of A Glass Jewel",
+		"Fourth Shard Of A Glass Jewel",
+		"Fifth Shard Of A Glass Jewel",
+		"Sixth Shard Of A Glass Jewel",
+		"Seventh Shard Of A Glass Jewel",
+		"Eighth Shard Of A Glass Jewel",
+		"Ninth Shard Of A Glass Jewel",
+		"Glass Jewel Clasp",
+	},
+	
+	["Halcyon Jewel"] = 
+	{
+		"First Shard Of A Halcyon Jewel",
+		"Second Shard Of A Halcyon Jewel",
+		"Third Shard Of A Halcyon Jewel",
+		"Fourth Shard Of A Halcyon Jewel",
+		"Fifth Shard Of A Halcyon Jewel",
+		"Sixth Shard Of A Halcyon Jewel",
+		"Seventh Shard Of A Halcyon Jewel",
+		"Eighth Shard Of A Halcyon Jewel",
+		"Ninth Shard Of A Halcyon Jewel",
+		"Halcyon Jewel Clasp",
+	},
+	
+	["Saffron Jewel"] = 
+	{
+		"First Shard Of A Saffron Jewel",
+		"Second Shard Of A Saffron Jewel",
+		"Third Shard Of A Saffron Jewel",
+		"Fourth Shard Of A Saffron Jewel",
+		"Fifth Shard Of A Saffron Jewel",
+		"Sixth Shard Of A Saffron Jewel",
+		"Seventh Shard Of A Saffron Jewel",
+		"Eighth Shard Of A Saffron Jewel",
+		"Ninth Shard Of A Saffron Jewel",
+		"Saffron Jewel Clasp",
+	},
+	
+	["Amber Jewel"] = 
+	{
+		"First Shard Of A Amber Jewel",
+		"Second Shard Of A Amber Jewel",
+		"Third Shard Of A Amber Jewel",
+		"Fourth Shard Of A Amber Jewel",
+		"Fifth Shard Of A Amber Jewel",
+		"Sixth Shard Of A Amber Jewel",
+		"Seventh Shard Of A Amber Jewel",
+		"Eighth Shard Of A Amber Jewel",
+		"Ninth Shard Of A Amber Jewel",
+		"Amber Jewel Clasp",
+	},
+	
+	["Golden Jewel"] = 
+	{
+		"First Shard Of A Golden Jewel",
+		"Second Shard Of A Golden Jewel",
+		"Third Shard Of A Golden Jewel",
+		"Fourth Shard Of A Golden Jewel",
+		"Fifth Shard Of A Golden Jewel",
+		"Sixth Shard Of A Golden Jewel",
+		"Seventh Shard Of A Golden Jewel",
+		"Eighth Shard Of A Golden Jewel",
+		"Ninth Shard Of A Golden Jewel",
+		"Golden Jewel Clasp",
+	},
+	
+	["Citrine Jewel"] = 
+	{
+		"First Shard Of A Citrine Jewel",
+		"Second Shard Of A Citrine Jewel",
+		"Third Shard Of A Citrine Jewel",
+		"Fourth Shard Of A Citrine Jewel",
+		"Fifth Shard Of A Citrine Jewel",
+		"Sixth Shard Of A Citrine Jewel",
+		"Seventh Shard Of A Citrine Jewel",
+		"Eighth Shard Of A Citrine Jewel",
+		"Ninth Shard Of A Citrine Jewel",
+		"Citrine Jewel Clasp",
+	},
+	
+	["Fire Jewel"] = 
+	{
+		"First Shard Of A Fire Jewel",
+		"Second Shard Of A Fire Jewel",
+		"Third Shard Of A Fire Jewel",
+		"Fourth Shard Of A Fire Jewel",
+		"Fifth Shard Of A Fire Jewel",
+		"Sixth Shard Of A Fire Jewel",
+		"Seventh Shard Of A Fire Jewel",
+		"Eighth Shard Of A Fire Jewel",
+		"Ninth Shard Of A Fire Jewel",
+		"Fire Jewel Clasp",
+	},
+	
+	["Crimson Jewel"] = 
+	{
+		"First Shard Of A Crimson Jewel",
+		"Second Shard Of A Crimson Jewel",
+		"Third Shard Of A Crimson Jewel",
+		"Fourth Shard Of A Crimson Jewel",
+		"Fifth Shard Of A Crimson Jewel",
+		"Sixth Shard Of A Crimson Jewel",
+		"Seventh Shard Of A Crimson Jewel",
+		"Eighth Shard Of A Crimson Jewel",
+		"Ninth Shard Of A Crimson Jewel",
+		"Crimson Jewel Clasp",
+	},
+	
+	["Maroon Jewel"] = 
+	{
+		"First Shard Of A Maroon Jewel",
+		"Second Shard Of A Maroon Jewel",
+		"Third Shard Of A Maroon Jewel",
+		"Fourth Shard Of A Maroon Jewel",
+		"Fifth Shard Of A Maroon Jewel",
+		"Sixth Shard Of A Maroon Jewel",
+		"Seventh Shard Of A Maroon Jewel",
+		"Eighth Shard Of A Maroon Jewel",
+		"Ninth Shard Of A Maroon Jewel",
+		"Maroon Jewel Clasp",
+	},
+	
+	["Scarlet Jewel"] = 
+	{
+		"First Shard Of A Scarlet Jewel",
+		"Second Shard Of A Scarlet Jewel",
+		"Third Shard Of A Scarlet Jewel",
+		"Fourth Shard Of A Scarlet Jewel",
+		"Fifth Shard Of A Scarlet Jewel",
+		"Sixth Shard Of A Scarlet Jewel",
+		"Seventh Shard Of A Scarlet Jewel",
+		"Eighth Shard Of A Scarlet Jewel",
+		"Ninth Shard Of A Scarlet Jewel",
+		"Scarlet Jewel Clasp",
+	},	
 	
 	["Cooking Cup"] =
 	{
@@ -5150,7 +5541,7 @@ Curios =
 		"Seventh Piece Of A Spectral Cup",
 		"Eighth Piece Of A Spectral Cup",
 		"Ninth Piece Of A Spectral Cup",
-		"Spectral Cup ?" 
+		"Spectral Cup Handle" 
 	},	
 	
 	["Tailoring Thimble"] = 
@@ -5206,24 +5597,24 @@ Curios =
 		"Seventh Piece Of A Spectral Focus",
 		"Eighth Piece Of A Spectral Focus",
 		"Ninth Piece Of A Spectral Focus",
-		"Spectral Focus ?",
+		"Spectral Focus Chain",
 	},
 	
 	["Alchemy beaker"] =
 	{
-		"First Piece Of A Spectral beaker",
-		"Second Piece Of A Spectral beaker",
-		"Third Piece Of A Spectral beaker",
-		"Fourth Piece Of A Spectral beaker",
-		"Fifth Piece Of A Spectral beaker",
-		"Sixth Piece Of A Spectral beaker",
-		"Seventh Piece Of A Spectral beaker",
-		"Eighth Piece Of A Spectral beaker",
-		"Ninth Piece Of A Spectral beaker",
-		"Spectral Beaker ?",
+		"First Piece Of A Spectral Beaker",
+		"Second Piece Of A Spectral Beaker",
+		"Third Piece Of A Spectral Beaker",
+		"Fourth Piece Of A Spectral Beaker",
+		"Fifth Piece Of A Spectral Beaker",
+		"Sixth Piece Of A Spectral Beaker",
+		"Seventh Piece Of A Spectral Beaker",
+		"Eighth Piece Of A Spectral Beaker",
+		"Ninth Piece Of A Spectral Beaker",
+		"Spectral Beaker Base",
 	},
 	
-	["Poisons Funnel"] =
+	["Poison Funnel"] =
 	{
 		"First Piece Of A Spectral Funnel",
 		"Second Piece Of A Spectral Funnel",
@@ -5234,10 +5625,10 @@ Curios =
 		"Seventh Piece Of A Spectral Funnel",
 		"Eighth Piece Of A Spectral Funnel",
 		"Ninth Piece Of A Spectral Funnel",
-		"Spectral Funnel ?",
+		"Spectral Funnel Spout",
 	},
 	
-	["Artisan Measuring Tape"] =
+	["Artisan Tape"] =
 	{
 		"First Piece Of A Spectral Tape",
 		"Second Piece Of A Spectral Tape",
@@ -5248,7 +5639,7 @@ Curios =
 		"Seventh Piece Of A Spectral Tape",
 		"Eighth Piece Of A Spectral Tape",
 		"Ninth Piece Of A Spectral Tape",
-		"Spectral Tape ?",
+		"Spectral Tape Spindle",
 	},
 	
 	["Bookbinding Stylus"] =
@@ -5262,10 +5653,10 @@ Curios =
 		"Seventh Piece Of A Spectral Stylus",
 		"Eighth Piece Of A Spectral Stylus",
 		"Ninth Piece Of A Spectral Stylus",
-		"Spectral Stylus ?",
+		"Spectral Stylus Handle",
 	},
 	
-	["Tattoos Needle"] =
+	["Tattoo Needle"] =
 	{
 		"First Piece Of A Spectral Needle",
 		"Second Piece Of A Spectral Needle",
@@ -5277,6 +5668,20 @@ Curios =
 		"Eighth Piece Of A Spectral Needle",
 		"Ninth Piece Of A Spectral Needle",
 		"Spectral Needle ?",
+	},
+	
+	["Herbs Hoe"] =
+	{
+		"First Piece Of A Spectral Hoe",
+		"Second Piece Of A Spectral Hoe",
+		"Third Piece Of A Spectral Hoe",
+		"Fourth Piece Of A Spectral Hoe",
+		"Fifth Piece Of A Spectral Hoe",
+		"Sixth Piece Of A Spectral Hoe",
+		"Seventh Piece Of A Spectral Hoe",
+		"Eighth Piece Of A Spectral Hoe",
+		"Ninth Piece Of A Spectral Hoe",
+		"Spectral Hoe Handle",
 	},
 	
 	["Munchkin Kitten"] =
