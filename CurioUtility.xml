@@ -62,7 +62,7 @@
    group="CurioOrganizer"
    enabled="n"
    name="CurioOrganizerPieces"   
-   match="^(\d+)\s+(Rare|Piece)\s+((?:\w|\s|\'|\-){0,21})\b\s+(\w+)\s+(.+)$"
+   match="^(\d+)\s+(Rare|Piece)\s+(.{1,21})\b\s+(\w+)\s+(.*)$"
    omit_from_output="y"
    regexp="y"
    script="curioOrganizerPieces"
@@ -159,7 +159,7 @@ require "masterCurios"
 
 function curioOrganizerStart(name, line, wildcards)
 	CurioTable = {}
-	pieceStringTable = {}
+	pieceHaveTable = {}
 	setLength = 21 
 	collectionLength = 13
 	 
@@ -177,13 +177,12 @@ function curioOrganizerMore(name, line, wildcards)
 end
 
 function curioOrganizerEnd(name, line, wildcards)
-	--the data gathering has finished
-	--disable the triggers that read and autosent "more" and the trigger that is displaying the results right now
 	EnableTrigger("CurioOrganizerMore", false)
 	EnableTrigger("CurioOrganizerEnd", false)
 	EnableTrigger("CurioOrganizerPieces", false)
- 
-	--make some space before you output the results
+	
+    -- Curios = { [<collection>] = { [<set>] = { <1-9, rare }, ... }, ... } 
+	-- CurioTable = {[<collection>] = {[<set>] = {[piece] ={ id, type, col, name}, ... }, ... }, ... } 
 	Note()
 	for collectionName, setTable in pairs(CurioTable) do
 		Hyperlink("curios all " .. collectionName,"["..collectionName.."]", "search for this collection", "steelblue", "", 0, true)
@@ -197,120 +196,100 @@ function curioOrganizerEnd(name, line, wildcards)
 		for i = -1,setLength do
 			Tell(" ")
 		end
-		--output some indices for the pieces
+		
 		Note("RR  01  02  03  04  05  06  07  08  09\n   ")
 		
 		for setName, pieceTable in pairs(setTable) do			
 			
-			Hyperlink("curios all " .. setName, setName, "search for this set", "steelblue", "", 0, true)
+			Hyperlink("curios all " .. setName, setName, "search for this curio", "steelblue", "", 0, true)
 			
 			for i = setName:len(), setLength+1 do
 				Tell(" ")
 			end
 			
-			masterHaveCurio = "no"
-			for masterSet, _ in pairs(Curios) do
-				if string.find(masterSet, string.gsub(setName, "%-", "%%-")) ~= nil then
-					setName = masterSet
-					masterHaveCurio = "yes"
-				end				
-			end
-			
-			if masterHaveCurio == "no" then
+			if Curios[collectionName][setName] == nil then
 				ColourNote("red", "", "Curio - " .. setName .. " not in master list.")
-				Note()
-				break
-			end
-			
-			
-			pieceStringTable[setName] = {}
-			for pieceName, pieceValues in pairs(pieceTable) do	
-				
-				for key, value in pairs(Curios[setName]) do					
-					if string.find(value, string.gsub(pieceName, "%-", "%%-")) ~= nil then
-						pieceNumber = tonumber(key)
+				--Note()
+			else	
+				pieceHaveTable[setName] = {}
+				for pieceName, pieceValues in pairs(pieceTable) do
+					for masterPieceNumber, masterPieceName in pairs(Curios[collectionName][setName]) do
+						-- for k, v in pairs(pieceTable) do
+						-- print(k,v)
+						-- for k1, v1 in pairs(v) do
+						-- print(k1,v1)
+						-- end
+						-- end
+						if string.find(masterPieceName, pieceValues.name:gsub("%-", "%%-")) then
+							if pieceValues.type == "Rare" then
+								pieceHaveTable[setName][0] = pieceName .. "==" .. pieceValues.count
+							else
+								pieceNumber = tonumber(masterPieceNumber)
+								pieceHaveTable[setName][pieceNumber] = pieceName .. "==" .. pieceValues.count
+							end
+						end
 					end
 				end
-				
-				if pieceValues.count == nil then
-					pieceValues.count = 0
-				end
-				
-				if pieceValues["type"] == "Rare" then
-					pieceStringTable[setName][0] = pieceName .. "==" .. pieceValues.count
-				else
-					pieceStringTable[setName][pieceNumber] = pieceName .. "==" .. pieceValues.count
-				end
-				
-				
-			end	
-			buildCount = 0
-			for i = 0, 9 do 
-				if pieceStringTable[setName][i] == nil then
-					for key, value in pairs(Curios[setName]) do
-						if key == 10 then
-							key = 0
-						end
-						if i == tonumber(key) then
-							pieceStringTable[setName][i] = value .. "==" .. "0"
-							break
-						end
-					end					
-				end
-				
-				pieceNameCount = pieceStringTable[setName][i]
-				pieceName, value = string.match(pieceNameCount, "(.+)\=\=(.+)")
-				havePiece = pieceName
-				
-				if value == "0" then
-					haveColor = "red"
-				elseif value ~= "0" then
-					haveColor = "green"
-				end
-		
-				Hyperlink("curios all " .. havePiece, string.format("%02d", value), havePiece, haveColor, "")
-				Tell("  ")
-				
-				if tonumber(value) > 0 then
-					buildCount = buildCount + 1
-				end
-			end
-			--BUILD ME NOW HERE
-			if buildCount == 10 then
-				buildMeCommands = ""
-				buildTempCount = 0
-				buildTempId = ""
-				
-				for buildPiece, buildValues in pairs(CurioTable[collectionName][setName]) do
+				buildCount = 0
+				for i = 0, 9 do 
+					if pieceHaveTable[setName][i] == nil then
+						for key, value in pairs(Curios[collectionName][setName]) do
+							if key == 10 then
+								key = 0
+							end
+							if i == tonumber(key) then
+								pieceHaveTable[setName][i] = value .. "==" .. "0"
+								break
+							end
+						end					
+					end
+					pieceNameCount = pieceHaveTable[setName][i]
+					pieceName, value = string.match(pieceNameCount, "(.+)\=\=(.+)")
+					--havePiece = pieceName
 					
-					if buildTempCount == 0 then
-						buildTempId = buildValues.id
-						buildTempCount = 1
-					else
-						buildMeCommands = buildMeCommands .. "curio attach " .. buildTempId .. " to " .. buildValues.id .. ";"	
-					end					
-				end
+					if value == "0" then
+						haveColor = "red"
+					elseif value ~= "0" then
+						haveColor = "green"
+					end
 			
-				Hyperlink("!!10c2d67a4b175a5886f234df:curioBuildNow("..buildMeCommands..")", "Build Me!", "Instantly constructs the curio", "yellow", "")
-			else
-				missingPieces = setName .. ": "
-				for key, piece in pairs(Curios[setName]) do
-					foundPiece = "no"
-					for buildPiece, buildValues in pairs(CurioTable[collectionName][setName]) do
-						if string.find(piece, buildPiece) ~= nil then
-							foundPiece = "yes"
-							break
-						end
-					end	
-					if foundPiece == "no" then
-						missingPieces = missingPieces .. piece .. ", "						
+					Hyperlink("curios all " .. pieceName, string.format("%02d", value), pieceName, haveColor, "")
+					Tell("  ")
+					
+					if tonumber(value) > 0 then
+						buildCount = buildCount + 1
 					end
 				end
 				
-				missingPieces = missingPieces:gsub(", $", "")
-				Hyperlink("!!10c2d67a4b175a5886f234df:curioMissingPieces("..missingPieces..")", "Missing Pieces", "Tells you missing pieces", "red", "")
+				
+				--BUILD ME NOW HERE
+				if buildCount == 10 then
+					buildMeCommands = ""
+					buildTempCount = 0
+					buildTempId = ""
+					
+					for buildPiece, buildValues in pairs(CurioTable[collectionName][setName]) do
+						if buildTempCount == 0 then
+							buildTempId = buildValues.id
+							buildTempCount = 1
+						else
+							buildMeCommands = buildMeCommands .. "curio attach " .. buildTempId .. " to " .. buildValues.id .. ";"	
+						end					
+					end
+				
+					Hyperlink("!!10c2d67a4b175a5886f234df:curioBuildNow("..buildMeCommands..")", "Build Me!", "Instantly constructs the curio", "yellow", "")
+				else
+					missingPieces = setName .. ": "
+					for _, piece in pairs(Curios[collectionName][setName]) do
+						if CurioTable[collectionName][setName][piece] == nil then
+							missingPieces = missingPieces .. piece .. ", "						
+						end
+					end
+					
+					missingPieces = missingPieces:gsub(", $", "")
+					Hyperlink("!!10c2d67a4b175a5886f234df:curioMissingPieces("..missingPieces..")", "Missing Pieces", "Tells you missing pieces", "red", "")
+				end
 			end
-			
 			Note()
 		end
 		Note()		
@@ -339,17 +318,35 @@ end
 
 function curioOrganizerPieces(name, line, wildcards)
 
-
 	curioId = wildcards[1]
 	curioType = wildcards[2]
 	curioSet = wildcards[3]
 	curioCollection = wildcards[4]
 	curioPieceName = wildcards[5]
 	
-	for masterSet, _ in pairs(Curios) do
-		if string.find(masterSet, curioSet) ~= nil then
-			curioSet = masterSet
-		end				
+	for masterCollectionName, masterCollectionTable in pairs(Curios) do
+		if string.find(masterCollectionName, curioCollection:gsub("%-", "%%-")) ~= nil then
+			curioCollection = masterCollectionName		
+			for masterSetName, masterPieceTable in pairs(masterCollectionTable) do				
+				if string.find(masterSetName, curioSet:gsub("%-", "%%-")) ~= nil then
+					if curioSet == "Dreadlock" then
+					print("1:"..curioSet, masterSetName)
+					end
+					curioSet = masterSetName
+					if curioSet == "Dreadlock" then
+					print("2:"..curioSet, masterSetName)
+					end
+					for masterPieceName, _ in pairs(masterPieceTable) do
+						if string.find(masterPieceName, curioPieceName:gsub("%-", "%%-")) ~= nil then
+							curioPieceName = masterPieceName
+							break
+						end						
+					end	
+					break
+				end	
+			end
+			break
+		end
 	end
 	
 	if CurioTable[curioCollection] == nil then
@@ -366,7 +363,7 @@ function curioOrganizerPieces(name, line, wildcards)
 	end
 	
 	CurioTable[curioCollection][curioSet][curioPieceName].id = curioId
-	CurioTable[curioCollection][curioSet][curioPieceName]["type"] = curioType
+	CurioTable[curioCollection][curioSet][curioPieceName].type = curioType
 	CurioTable[curioCollection][curioSet][curioPieceName].name = curioPieceName
 	CurioTable[curioCollection][curioSet][curioPieceName].count = CurioTable[curioCollection][curioSet][curioPieceName].count + 1
 end
