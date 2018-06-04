@@ -1,6 +1,7 @@
 Curios = 
 {	
-	["None"] = {
+	["None"] = 
+	{
 		["Alchemy beaker"] =
 		{
 			"First Piece Of A Spectral Beaker",
@@ -2514,6 +2515,65 @@ Curios =
 		},
 	},
 	
+	["Birds"] = 
+	{
+		["Dove Bird"] = 
+		{
+			"Dove Left Leg",
+			"Dove Right Leg",
+			"Dove Left Wing",
+			"Dove Right Wing",
+			"Dove Body",
+			"Dove Tailfeathers",
+			"Dove Beak",
+			"Dove Head",
+			"Dove Eyes",
+			"Dove Heart",
+		},
+		
+		["Love Bird"] = 
+		{
+			"Lovebird Left Leg",
+			"Lovebird Right Leg",
+			"Lovebird Left Wing",
+			"Lovebird Right Wing",
+			"Lovebird Body",
+			"Lovebird Tailfeathers",
+			"Lovebird Beak",
+			"Lovebird Head",
+			"Lovebird Eyes",
+			"Lovebird Heart",
+		},
+		
+		["Canary Bird"] = 
+		{
+			"Canary Left Leg",
+			"Canary Right Leg",
+			"Canary Left Wing",
+			"Canary Right Wing",
+			"Canary Body",
+			"Canary Tailfeathers",
+			"Canary Beak",
+			"Canary Head",
+			"Canary Eyes",
+			"Canary Heart",
+		},
+		
+		["Parakeet Bird"] = 
+		{
+			"Parakeet Left Leg",
+			"Parakeet Right Leg",
+			"Parakeet Left Wing",
+			"Parakeet Right Wing",
+			"Parakeet Body",
+			"Parakeet Tailfeathers",
+			"Parakeet Beak",
+			"Parakeet Head",
+			"Parakeet Eyes",
+			"Parakeet Heart",
+		},	
+	},
+	
 	["Bluebows"] = 
 	{
 		["Aquamarine Bow"] = 
@@ -2632,6 +2692,65 @@ Curios =
 		},
 	},
 
+	["Blueink"] =
+	{
+		["Peacock Inkwell"] = 
+		{
+			"First Peacock Blot",
+			"Second Peacock Blot",
+			"Third Peacock Blot",
+			"Fourth Peacock Blot",
+			"Fifth Peacock Blot",
+			"Sixth Peacock Blot",
+			"Seventh Peacock Blot",
+			"Eighth Peacock Blot",
+			"Ninth Peacock Blot",
+			"Peacock Stopper",
+		},
+		
+		["Aquamarine Inkwell"] = 
+		{
+			"First Aquamarine Blot",
+			"Second Aquamarine Blot",
+			"Third Aquamarine Blot",
+			"Fourth Aquamarine Blot",
+			"Fifth Aquamarine Blot",
+			"Sixth Aquamarine Blot",
+			"Seventh Aquamarine Blot",
+			"Eighth Aquamarine Blot",
+			"Ninth Aquamarine Blot",
+			"Aquamarine Stopper",
+		},
+		
+		["Cornflower Inkwell"] = 
+		{
+			"First Cornflower Blot",
+			"Second Cornflower Blot",
+			"Third Cornflower Blot",
+			"Fourth Cornflower Blot",
+			"Fifth Cornflower Blot",
+			"Sixth Cornflower Blot",
+			"Seventh Cornflower Blot",
+			"Eighth Cornflower Blot",
+			"Ninth Cornflower Blot",
+			"Cornflower Stopper",
+		},
+		
+		["Cobalt Inkwell"] = 
+		{
+			"First Cobalt Blot",
+			"Second Cobalt Blot",
+			"Third Cobalt Blot",
+			"Fourth Cobalt Blot",
+			"Fifth Cobalt Blot",
+			"Sixth Cobalt Blot",
+			"Seventh Cobalt Blot",
+			"Eighth Cobalt Blot",
+			"Ninth Cobalt Blot",
+			"Cobalt Stopper",
+		},	
+	},
+	
 	["Bone"] = 
 	{
 		["Crystal Femur"] = 
@@ -2654,7 +2773,7 @@ Curios =
 			"Right Eye Socket",
 			"Upper Jaw",
 			"Lower Jaw",
-			"Front Plate Socket",
+			"Front Plate",
 			"Middle Plate",
 			"Back Plate",
 			"Upper Teeth",
@@ -2709,15 +2828,15 @@ Curios =
 		
 		["Amber Jewel"] = 
 		{
-			"First Shard Of A Amber Jewel",
-			"Second Shard Of A Amber Jewel",
-			"Third Shard Of A Amber Jewel",
-			"Fourth Shard Of A Amber Jewel",
-			"Fifth Shard Of A Amber Jewel",
-			"Sixth Shard Of A Amber Jewel",
-			"Seventh Shard Of A Amber Jewel",
-			"Eighth Shard Of A Amber Jewel",
-			"Ninth Shard Of A Amber Jewel",
+			"First Shard Of An Amber Jewel",
+			"Second Shard Of An Amber Jewel",
+			"Third Shard Of An Amber Jewel",
+			"Fourth Shard Of An Amber Jewel",
+			"Fifth Shard Of An Amber Jewel",
+			"Sixth Shard Of An Amber Jewel",
+			"Seventh Shard Of An Amber Jewel",
+			"Eighth Shard Of An Amber Jewel",
+			"Ninth Shard Of An Amber Jewel",
 			"Amber Jewel Clasp",
 		},
 		
@@ -3306,8 +3425,8 @@ Curios =
 			"Lower Middle Plume",
 			"Upper Center Plume",
 			"Lower Center Plume",
-			"Upper Bottom",
-			"Lower Bottom",
+			"Upper Bottom Plume",
+			"Lower Bottom Plume",
 			"Tip",
 			"Spine",
 		},
@@ -3754,6 +3873,124 @@ Curios =
 		},
 	},
 
+	["Greenink"] =
+	{
+		["Emerald Inkwell"] = 
+		{
+			"First Emerald Blot",
+			"Second Emerald Blot",
+			"Third Emerald Blot",
+			"Fourth Emerald Blot",
+			"Fifth Emerald Blot",
+			"Sixth Emerald Blot",
+			"Seventh Emerald Blot",
+			"Eighth Emerald Blot",
+			"Ninth Emerald Blot",
+			"Emerald Stopper",
+		},
+		
+		["Mint Inkwell"] = 
+		{
+			"First Mint Blot",
+			"Second Mint Blot",
+			"Third Mint Blot",
+			"Fourth Mint Blot",
+			"Fifth Mint Blot",
+			"Sixth Mint Blot",
+			"Seventh Mint Blot",
+			"Eighth Mint Blot",
+			"Ninth Mint Blot",
+			"Mint Stopper",
+		},
+		
+		["Chartreuse Inkwell"] = 
+		{
+			"First Chartreuse Blot",
+			"Second Chartreuse Blot",
+			"Third Chartreuse Blot",
+			"Fourth Chartreuse Blot",
+			"Fifth Chartreuse Blot",
+			"Sixth Chartreuse Blot",
+			"Seventh Chartreuse Blot",
+			"Eighth Chartreuse Blot",
+			"Ninth Chartreuse Blot",
+			"Chartreuse Stopper",
+		},
+		
+		["Seafoam Inkwell"] = 
+		{
+			"First Seafoam Blot",
+			"Second Seafoam Blot",
+			"Third Seafoam Blot",
+			"Fourth Seafoam Blot",
+			"Fifth Seafoam Blot",
+			"Sixth Seafoam Blot",
+			"Seventh Seafoam Blot",
+			"Eighth Seafoam Blot",
+			"Ninth Seafoam Blot",
+			"Seafoam Stopper",
+		},	
+	},
+
+	["Goldink"] =
+	{
+		["Halcyon-Gold Inkwell"] = 
+		{
+			"First Halcyon-Gold Blot",
+			"Second Halcyon-Gold Blot",
+			"Third Halcyon-Gold Blot",
+			"Fourth Halcyon-Gold Blot",
+			"Fifth Halcyon-Gold Blot",
+			"Sixth Halcyon-Gold Blot",
+			"Seventh Halcyon-Gold Blot",
+			"Eighth Halcyon-Gold Blot",
+			"Ninth Halcyon-Gold Blot",
+			"Halcyon-Gold Stopper",
+		},
+		
+		["Lambent Inkwell"] = 
+		{
+			"First Lambent Blot",
+			"Second Lambent Blot",
+			"Third Lambent Blot",
+			"Fourth Lambent Blot",
+			"Fifth Lambent Blot",
+			"Sixth Lambent Blot",
+			"Seventh Lambent Blot",
+			"Eighth Lambent Blot",
+			"Ninth Lambent Blot",
+			"Lambent Stopper",
+		},
+		
+		["Champagne Inkwell"] = 
+		{
+			"First Champagne Blot",
+			"Second Champagne Blot",
+			"Third Champagne Blot",
+			"Fourth Champagne Blot",
+			"Fifth Champagne Blot",
+			"Sixth Champagne Blot",
+			"Seventh Champagne Blot",
+			"Eighth Champagne Blot",
+			"Ninth Champagne Blot",
+			"Champagne Stopper",
+		},
+		
+		["Saffron Inkwell"] = 
+		{
+			"First Saffron Blot",
+			"Second Saffron Blot",
+			"Third Saffron Blot",
+			"Fourth Saffron Blot",
+			"Fifth Saffron Blot",
+			"Sixth Saffron Blot",
+			"Seventh Saffron Blot",
+			"Eighth Saffron Blot",
+			"Ninth Saffron Blot",
+			"Saffron Stopper",
+		},	
+	},
+
 	["Ice Angel"] = 
 	{
 		["Cloudberry Basket"] = 
@@ -4108,6 +4345,61 @@ Curios =
 		},
 	},
 
+	["Nagasith"] = 
+	{
+		["Nagasith Hood"] = {
+			"First Tendril",
+			"Second Tendril",
+			"Third Tendril",
+			"Fourth Tendril",
+			"Fifth Tendril",
+			"Sixth Tendril",
+			"Seventh Tendril",
+			"Eighth Tendril",
+			"Ninth Tendril",
+			"Bare Hood",
+		},
+		
+		["Nagasith Recorder"] = {
+			"First Silver Vein",
+			"Second Silver Vein",
+			"Third Silver Vein",
+			"Fourth Silver Vein",
+			"Fifth Silver Vein",
+			"Sixth Silver Vein",
+			"Seventh Silver Vein",
+			"Eighth Silver Vein",
+			"Ninth Silver Vein",
+			"Dusky Diamond",
+		},
+		
+		["Nagasith Flute"] = {
+			"First Segment",
+			"Second Segment",
+			"Third Segment",
+			"Fourth Segment",
+			"Fifth Segment",
+			"Sixth Segment",
+			"Seventh Segment",
+			"Eighth Segment",
+			"Ninth Segment",
+			"Mouthpiece",
+		},
+		
+		["Nagasith Mapper"] = {
+			"Left Metallic Frame",
+			"Right Metallic Frame",
+			"Central Metallic Frame",
+			"Golden Crystal",
+			"Crimson Crystal",
+			"Cerulean Crystal",
+			"Emerald Crystal",
+			"Violet Crystal",
+			"Orange Crystal",
+			"Mapper Base",
+		},
+	},
+
 	["Puppies"] = 
 	{
 		["Corgi Puppy"] =
@@ -4167,6 +4459,65 @@ Curios =
 		},
 	},
 
+	["Purpleink"] =
+	{
+		["Lilac Inkwell"] = 
+		{
+			"First Lilac Blot",
+			"Second Lilac Blot",
+			"Third Lilac Blot",
+			"Fourth Lilac Blot",
+			"Fifth Lilac Blot",
+			"Sixth Lilac Blot",
+			"Seventh Lilac Blot",
+			"Eighth Lilac Blot",
+			"Ninth Lilac Blot",
+			"Lilac Stopper",
+		},
+		
+		["Wine-Hued Inkwell"] = 
+		{
+			"First Wine-Hued Blot",
+			"Second Wine-Hued Blot",
+			"Third Wine-Hued Blot",
+			"Fourth Wine-Hued Blot",
+			"Fifth Wine-Hued Blot",
+			"Sixth Wine-Hued Blot",
+			"Seventh Wine-Hued Blot",
+			"Eighth Wine-Hued Blot",
+			"Ninth Wine-Hued Blot",
+			"Wine-Hued Stopper",
+		},
+		
+		["Plum Inkwell"] = 
+		{
+			"First Plum Blot",
+			"Second Plum Blot",
+			"Third Plum Blot",
+			"Fourth Plum Blot",
+			"Fifth Plum Blot",
+			"Sixth Plum Blot",
+			"Seventh Plum Blot",
+			"Eighth Plum Blot",
+			"Ninth Plum Blot",
+			"Plum Stopper",
+		},
+		
+		["Indigo Inkwell"] = 
+		{
+			"First Indigo Blot",
+			"Second Indigo Blot",
+			"Third Indigo Blot",
+			"Fourth Indigo Blot",
+			"Fifth Indigo Blot",
+			"Sixth Indigo Blot",
+			"Seventh Indigo Blot",
+			"Eighth Indigo Blot",
+			"Ninth Indigo Blot",
+			"Indigo Stopper",
+		},	
+	},
+	
 	["Orangebows"] = 
 	{
 		["Burnt Orange Bow"] = 
@@ -4403,6 +4754,65 @@ Curios =
 		},
 	},
 
+	["Redink"] =
+	{
+		["Crimson Inkwell"] = 
+		{
+			"First Crimson Blot",
+			"Second Crimson Blot",
+			"Third Crimson Blot",
+			"Fourth Crimson Blot",
+			"Fifth Crimson Blot",
+			"Sixth Crimson Blot",
+			"Seventh Crimson Blot",
+			"Eighth Crimson Blot",
+			"Ninth Crimson Blot",
+			"Crimson Stopper",
+		},
+		
+		["Maroon Inkwell"] = 
+		{
+			"First Maroon Blot",
+			"Second Maroon Blot",
+			"Third Maroon Blot",
+			"Fourth Maroon Blot",
+			"Fifth Maroon Blot",
+			"Sixth Maroon Blot",
+			"Seventh Maroon Blot",
+			"Eighth Maroon Blot",
+			"Ninth Maroon Blot",
+			"Maroon Stopper",
+		},
+		
+		["Cerise Inkwell"] = 
+		{
+			"First Cerise Blot",
+			"Second Cerise Blot",
+			"Third Cerise Blot",
+			"Fourth Cerise Blot",
+			"Fifth Cerise Blot",
+			"Sixth Cerise Blot",
+			"Seventh Cerise Blot",
+			"Eighth Cerise Blot",
+			"Ninth Cerise Blot",
+			"Cerise Stopper",
+		},
+		
+		["Jazberry Inkwell"] = 
+		{
+			"First Jazberry Blot",
+			"Second Jazberry Blot",
+			"Third Jazberry Blot",
+			"Fourth Jazberry Blot",
+			"Fifth Jazberry Blot",
+			"Sixth Jazberry Blot",
+			"Seventh Jazberry Blot",
+			"Eighth Jazberry Blot",
+			"Ninth Jazberry Blot",
+			"Jazberry Stopper",
+		},	
+	},
+	
 	["Scholar"] = 
 	{
 		["Feather Quill"] = 
@@ -4462,6 +4872,62 @@ Curios =
 		},
 	},
 
+	["Sileni"] =
+	{
+		["Sileni Truss"] = {
+			"First Grape",
+			"Second Grape",
+			"Third Grape",
+			"Fourth Grape",
+			"Fifth Grape",
+			"Sixth Grape",
+			"Seventh Grape",
+			"Eighth Grape",
+			"Golden Stem",
+			"Rainbow Ribbon",
+		},
+		
+		["Sileni Crown"] = {
+			"Lower Veil",
+			"Middle Veil",
+			"Upper Veil",
+			"First Heather",
+			"Second Heather",
+			"Third Heather",
+			"Fourth Heather",
+			"Fifth Heather",
+			"Sixth Heather",
+			"Teacup Flowers",
+		},		
+
+		["Sileni Flute"] = {
+			
+			"First Reed",
+			"Second Reed",
+			"Third Reed",
+			"Fourth Reed",
+			"Fifth Reed",
+			"Sixth Reed",
+			"Seventh Reed",
+			"Eighth Reed",
+			"Ninth Reed",
+			"Kidskin Throng",
+		},
+		
+		["Sileni Stone"] = {
+			"Top Fragment",
+			"Second Fragment",
+			"Third Fragment",
+			"Fourth Fragment",
+			"Fifth Fragment",
+			"Sixth Fragment",
+			"Seventh Fragment",
+			"Eighth Fragment",
+			"Golden Stem",
+			"Broken Notation",
+		},	
+	},
+	
 	["Sky"] = 
 	{
 		["Crystal Lightning"] = 
@@ -5405,4 +5871,64 @@ Curios =
 			"Saffron Bottle Spout",
 		},
 	},
+	
+	["Yellowink"] =
+	{
+		["Sunny Inkwell"] = 
+		{
+			"First Sunny Blot",
+			"Second Sunny Blot",
+			"Third Sunny Blot",
+			"Fourth Sunny Blot",
+			"Fifth Sunny Blot",
+			"Sixth Sunny Blot",
+			"Seventh Sunny Blot",
+			"Eighth Sunny Blot",
+			"Ninth Sunny Blot",
+			"Sunny Stopper",
+		},
+		
+		["Buttercream Inkwell"] = 
+		{
+			"First Buttercream Blot",
+			"Second Buttercream Blot",
+			"Third Buttercream Blot",
+			"Fourth Buttercream Blot",
+			"Fifth Buttercream Blot",
+			"Sixth Buttercream Blot",
+			"Seventh Buttercream Blot",
+			"Eighth Buttercream Blot",
+			"Ninth Buttercream Blot",
+			"Buttercream Stopper",
+		},
+		
+		["Cornsilk Inkwell"] = 
+		{
+			"First Cornsilk Blot",
+			"Second Cornsilk Blot",
+			"Third Cornsilk Blot",
+			"Fourth Cornsilk Blot",
+			"Fifth Cornsilk Blot",
+			"Sixth Cornsilk Blot",
+			"Seventh Cornsilk Blot",
+			"Eighth Cornsilk Blot",
+			"Ninth Cornsilk Blot",
+			"Cornsilk Stopper",
+		},
+		
+		["Lemon Inkwell"] = 
+		{
+			"First Lemon Blot",
+			"Second Lemon Blot",
+			"Third Lemon Blot",
+			"Fourth Lemon Blot",
+			"Fifth Lemon Blot",
+			"Sixth Lemon Blot",
+			"Seventh Lemon Blot",
+			"Eighth Lemon Blot",
+			"Ninth Lemon Blot",
+			"Lemon Stopper",
+		},	
+	},
+
 }
