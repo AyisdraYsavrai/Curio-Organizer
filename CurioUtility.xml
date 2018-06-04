@@ -62,7 +62,7 @@
    group="CurioOrganizer"
    enabled="n"
    name="CurioOrganizerPieces"   
-   match="^(\d+)\s+(Rare|Piece)\s+(.{1,21})\b\s+(\w+)\s+(.*)$"
+   match="^(\d+)\s+(Rare|Piece)\s+(.{1,21})\b\s+(\w+)\s+(.*?)\s+Yes\s*$"
    omit_from_output="y"
    regexp="y"
    script="curioOrganizerPieces"
@@ -114,7 +114,175 @@
    script="curioRubberPieces"
    sequence="100"
   >
-  </trigger>  
+  </trigger> 
+  
+	<trigger
+		enabled="n"
+		group="CurioUtility.Genies"
+		name="GenieBottleOutput"
+		omit_from_output="y"
+		match="^A stream of .*? smoke spills from .*? leaving behind (.*)\.$"
+		regexp="y"   
+		script="GenieReward"
+		sequence="100"
+	>
+	</trigger>  
+
+	<trigger
+		enabled="n"
+		group="CurioUtility.Genies"
+		name="GenieGotAethergoop"
+		omit_from_output="n"
+		match="^You collect (\d) aethergoop!$"
+		regexp="y"   
+		script="GenieReward"
+		sequence="100"
+	>
+	</trigger>  
+
+	<trigger
+		enabled="n"
+		group="CurioUtility.Genies"
+		name="RubbedBottle"
+		omit_from_output="y"
+		match="^You have already rubbed this bottle for the month\!$"
+		regexp="y"   
+		script="GenieReward"
+		sequence="100"
+	>
+	</trigger>  
+
+	<trigger
+		enabled="n"
+		group="CurioUtility.Genies"
+		name="RubbingBottle"
+		omit_from_output="y"
+		match="^(?:.*? )?(A|a)s you rub .*?$"
+		regexp="y"   
+		script="GenieReward"
+		sequence="100"
+	>
+	</trigger> 
+	
+	
+	<trigger
+		enabled="y"
+		group="CurioUtility.Maps"
+		name="ReadStart"
+		omit_from_output="y"
+		match="^You read what is written on the Treasure Map of the Basin of Life\:$"
+		regexp="y"   
+		script="MapReadGag"
+		sequence="100"
+	>
+	</trigger>
+
+	<trigger
+		enabled="n"
+		group="CurioUtility.Maps"
+		name="ReadMiddle"
+		omit_from_output="y"
+		match="^.+$"
+		regexp="y"   
+		script="MapReadGag"
+		sequence="1000"
+	>
+	</trigger>
+
+	<trigger
+		enabled="y"
+		group="CurioUtility.Maps"
+		name="ReadEnd"
+		omit_from_output="y"
+		match="^Sapphire then emerald then ruby then gold\.$"
+		regexp="y"   
+		script="MapReadGag"
+		sequence="100"
+	>
+	</trigger>
+
+	<trigger
+		enabled="y"
+		group="CurioUtility.Maps"
+		name="UnusedMap"
+		match="^The Treasure Map of the Basin of Life unfolds before you.$"
+		regexp="y"   
+		script=""
+		sequence="100"
+	>
+	</trigger>
+
+	<trigger
+		enabled="y"
+		group="CurioUtility.Maps"
+		name="DistanceNone"
+		omit_from_output="y"
+		match="^The glow around the map immediately fades to nothing\.$"
+		regexp="y"   
+		script="MapDistanceCheck"
+		sequence="100"
+	>
+	</trigger>
+
+	<trigger
+		enabled="y"
+		group="CurioUtility.Maps"
+		name="DistanceWhite"
+		omit_from_output="y"
+		match="^The glow on the map flashes once and then fades away\.$"
+		regexp="y"   
+		script="MapDistanceCheck"
+		sequence="100"
+	>
+	</trigger>
+
+	<trigger
+		enabled="y"
+		group="CurioUtility.Maps"
+		name="DistanceBlue"
+		omit_from_output="y"
+		match="^The glow on the map shines with a soft sapphire hue then fades away\.$"
+		regexp="y"   
+		script="MapDistanceCheck"
+		sequence="100"
+	>
+	</trigger>
+
+	<trigger
+		enabled="y"
+		group="CurioUtility.Maps"
+		name="DistanceGreen"
+		omit_from_output="y"
+		match="^The glow on the map pulses with an emerald light\.$"
+		regexp="y"   
+		script="MapDistanceCheck"
+		sequence="100"
+	>
+	</trigger>
+
+	<trigger
+		enabled="y"
+		group="CurioUtility.Maps"
+		name="DistanceRed"
+		omit_from_output="y"
+		match="^The glow on the map ignites with preternatural ruby flames\.$"
+		regexp="y"   
+		script="MapDistanceCheck"
+		sequence="100"
+	>
+	</trigger>
+
+	<trigger
+		enabled="y"
+		group="CurioUtility.Maps"
+		name="DistanceGold"
+		omit_from_output="y"
+		match="^The glow on the map shimmers with glittering golden hues\.$"
+		regexp="y"   
+		script="MapDistanceCheck"
+		sequence="100"
+	>
+	</trigger>
   
 </triggers>
 
@@ -122,30 +290,51 @@
 
 <aliases>
 
-  <alias
-   group="CurioRubber"
-   enabled="y"
-   name="curioGetRubList"
-   match="^crub (single )?(.+)?$"
-   regexp="y"
-   script="curioRubberStart"
-   ignore_case="y"
-   sequence="100"
-  >
-  </alias>
-  
-  <alias
-   group="CurioInfo"
-   enabled="y"
-   name="curioInfoStart"
-   match="^cinfo (.+)$"
-   regexp="y"
-   script="curioInfoStart"
-   ignore_case="y"
-   sequence="100"
-  >
-  </alias>
+	<alias
+		group="CurioRubber"
+		enabled="y"
+		name="curioGetRubList"
+		match="^crub (single )?(.+)?$"
+		regexp="y"
+		script="curioRubberStart"
+		ignore_case="y"
+		sequence="100"
+	>
+	</alias>
 
+	<alias
+		group="CurioInfo"
+		enabled="y"
+		name="curioInfoStart"
+		match="^cinfo (.+)$"
+		regexp="y"
+		script="curioInfoStart"
+		ignore_case="y"
+		sequence="100"
+	>
+	</alias>
+  
+	<alias  
+		enabled="y"   
+		group="CurioUtility.Genies"
+		name="Genierub"
+		match="^genierub$"
+		regexp="y"
+		script="RubGenies"
+		sequence="100"
+	>
+	</alias>
+	
+	<alias  
+		enabled="y"   
+		group="CurioUtility.Maps"
+		name="mapread"
+		match="^readmaps$"
+		regexp="y"
+		script="ReadMaps"
+		sequence="100"
+	>
+	</alias>
 </aliases>
 
 <!--  Script  -->
@@ -153,9 +342,62 @@
 
 <script>
 <![CDATA[
+--module(...,package.seeall)
+mapDistances = {
+
+["None"] = "None",
+["White"] = "25+",
+["Blue"] = "24-15",
+["Green"] = "14-10",
+["Red"] = "9-5",
+["Gold"] = "4-1"
+
+}
+
+-- The glow on the map flashes once and then fades away.  25+
+-- The glow on the map shines with a soft sapphire hue then fades away. 24 - 15
+-- The glow on the map pulses with an emerald light. 14- 10
+-- The glow on the map ignites with preternatural ruby flames. 9-5
+-- The glow on the map shimmers with glittering golden hues. 4-1
+
+genieBottles = {}
+treasureMaps = {}
+aethergoopCollected = 0
+bottlesRubbed = 0
+genieOutput = ""
+gotBottleItems = false
+
 
 package.path = package.path .. ";" ..  GetPluginInfo(GetPluginID(), 20) .. "?.lua"
 require "masterCurios"
+require "display"
+
+function ReadMaps(name, line, wildcards)
+
+	for _, v in ipairs(treasureMaps) do
+		Send("read " .. v)
+	end
+end
+
+function MapReadGag(name, line, wildcards)
+
+
+	if name == "ReadStart" then
+		EnableTrigger("ReadMiddle", true)
+	elseif name == "ReadEnd" then
+		EnableTrigger("ReadMiddle", false)
+	end
+end
+
+function MapDistanceCheck(name, line, wildcards, styles)
+	
+	distanceColor = name:match("Distance(%w+)")
+	
+	ColourTell("white","", "[MAPS]: ")
+	ColourTell(distanceColor, "", "Treature is "..mapDistances[distanceColor].." rooms away")
+	Note()
+end
+
 
 function curioOrganizerStart(name, line, wildcards)
 	CurioTable = {}
@@ -185,7 +427,7 @@ function curioOrganizerEnd(name, line, wildcards)
 	-- CurioTable = {[<collection>] = {[<set>] = {[piece] ={ id, type, col, name}, ... }, ... }, ... } 
 	Note()
 	for collectionName, setTable in pairs(CurioTable) do
-		Hyperlink("curios all " .. collectionName,"["..collectionName.."]", "search for this collection", "steelblue", "", 0, true)
+		Hyperlink("curio list all " .. collectionName,"["..collectionName.."]", "search for this collection", "steelblue", "", 0, true)
 		
 		for i = 1,60 - collectionName:len() do
 			ColourTell("steelblue", "", "=")
@@ -201,7 +443,7 @@ function curioOrganizerEnd(name, line, wildcards)
 		
 		for setName, pieceTable in pairs(setTable) do			
 			
-			Hyperlink("curios all " .. setName, setName, "search for this curio", "steelblue", "", 0, true)
+			Hyperlink("curio list all " .. setName, setName, "search for this curio", "steelblue", "", 0, true)
 			
 			for i = setName:len(), setLength+1 do
 				Tell(" ")
@@ -253,7 +495,7 @@ function curioOrganizerEnd(name, line, wildcards)
 						haveColor = "green"
 					end
 			
-					Hyperlink("curios all " .. pieceName, string.format("%02d", value), pieceName, haveColor, "")
+					Hyperlink("curio list all " .. pieceName, string.format("%02d", value), pieceName, haveColor, "")
 					Tell("  ")
 					
 					if tonumber(value) > 0 then
@@ -326,16 +568,12 @@ function curioOrganizerPieces(name, line, wildcards)
 	
 	for masterCollectionName, masterCollectionTable in pairs(Curios) do
 		if string.find(masterCollectionName, curioCollection:gsub("%-", "%%-")) ~= nil then
-			curioCollection = masterCollectionName		
-			for masterSetName, masterPieceTable in pairs(masterCollectionTable) do				
+			if curioCollection ~= "Bird" then			
+				curioCollection = masterCollectionName
+			end
+			for masterSetName, masterPieceTable in pairs(masterCollectionTable) do
 				if string.find(masterSetName, curioSet:gsub("%-", "%%-")) ~= nil then
-					if curioSet == "Dreadlock" then
-					print("1:"..curioSet, masterSetName)
-					end
-					curioSet = masterSetName
-					if curioSet == "Dreadlock" then
-					print("2:"..curioSet, masterSetName)
-					end
+					curioSet = masterSetName					
 					for masterPieceName, _ in pairs(masterPieceTable) do
 						if string.find(masterPieceName, curioPieceName:gsub("%-", "%%-")) ~= nil then
 							curioPieceName = masterPieceName
@@ -382,7 +620,7 @@ function curioRubberStart(name, line, wildcards)
 	EnableTrigger("CurioRubberEnd", true)
 	EnableTrigger("CurioRubberPieces", true)
 	
-	Send("curios all " .. searchPattern)	
+	Send("curio list all " .. searchPattern)	
 	
 end
 
@@ -522,6 +760,54 @@ function curioCapitalizeFirstLetter(words)
 	return properCurio
 	
 end
+
+function GenieReward(name, line, wildcards)
+	--display.GagNextPrompt()
+	if name == "GenieGotAethergoop" then
+		aethergoopCollected = aethergoopCollected + wildcards[1]
+		--eachReward = eachReward .. " " .. wildcards[1]
+	elseif name == "RubbedBottle" then
+		genieOutput = "You have already rubbed your bottles today."
+		bottlesRubbed = bottlesRubbed + 1
+	elseif name == "GenieBottleOutput" then		
+		bottlesRubbed = bottlesRubbed + 1
+		if wildcards[1] ~= "aethergoop" then
+			genieOutput = wildcards[1] .. ", " .. genieOutput
+			gotBottleItems = true
+			--eachReward = eachReward .. " " .. wildcards[1]
+		end
+	end	
+	
+	if bottlesRubbed == #genieBottles then
+		if gotBottleItems then
+			genieOutput = genieOutput .."and " .. aethergoopCollected .. " goop."
+		elseif not gotBottleItems and aethergoopCollected ~= 0 then
+			genieOutput = aethergoopCollected .. " goop."
+		end
+		genieOutput = "Your "..bottlesRubbed.." genies gave you: ".. genieOutput
+		ColourNote("yellow", "", genieOutput)
+		EnableTriggerGroup("CurioUtility.Genies", false)
+	end
+	
+end
+
+function RubGenies(name, line, wildcards)
+	EnableTriggerGroup("CurioUtility.Genies", true)
+	
+	bottlesRubbed = 0
+	aethergoopCollected = 0
+	genieOutput = ""
+	--eachReward = ""
+	gotBottleItems = false
+	
+	for _, v in ipairs(genieBottles) do
+		--SendNoEcho("curiobox remove " .. v)
+		SendNoEcho("rub " .. v)
+		--SendNoEcho("curiobox add " .. v)
+	end		
+end
+
+
 
 ]]>
 </script>
