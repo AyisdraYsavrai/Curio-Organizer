@@ -4227,7 +4227,7 @@ Curios =
 		},
 	},
 	
-	["Materialize"] =
+	["Materialization"] =
 	{
 		["Radiant Jewel"] = 
 		{
