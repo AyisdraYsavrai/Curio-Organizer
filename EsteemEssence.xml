@@ -31,7 +31,7 @@
    match="^It is imbued with ((\d+,)*(\d+)) units of esteem.$"
    name="imbuedEsteem"
    regexp="y"
-   script="setNumbers"
+   script="DisplayEsteemWorth"
    sequence="100"
   >
   </trigger>
@@ -41,7 +41,7 @@
    match="^It appears to be of level (\d+).$"
    name="levelLine"
    regexp="y"
-   script="setNumbers"
+   script="SetFigurineLevel"
    sequence="100"
   >
   </trigger>
@@ -51,7 +51,7 @@
    match="^It is smaller than most miniatures.$"
    name="miniLine"
    regexp="y"
-   script="setNumbers"
+   script="SetFigurineLevel"
    sequence="100"
   >
   </trigger>
@@ -64,9 +64,19 @@
   <alias
    enabled="y"
    name="esteemBonus"
-   match="^sesteem (tattoo|realm|poteen) (.+)$"
+   match="^sesteem (level|tattoo|realm|poteen) (.+)$"
    regexp="y"
-   script="setNumbers"
+   script="SetBonusValue"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   name="esteemTell"
+   match="^howmuchessenceis (\d+) (with (\d+) (\d+))?$"
+   regexp="y"
+   script="howMuch"
    ignore_case="y"
    sequence="100"
   >
@@ -78,73 +88,78 @@
 
 valueTable = {
 
-	["esteemValue"] = 0,
-	["levelValue"] = 0,
-	["levelFactor"] = .05,
-	["levelBonus"] = 0,
-	["miniValue"] = 0,
-	["miniFactor"] = .02,
-	["miniBonus"] = 0,
-	["realmValue"] = 1000,
-	["realmFactor"] = .001,
-	["realmBonus"] = 0,
-	["tattooValue"] = 0,
-	["tattooFactor"] = .001,
-	["tattooBonus"] = 0,
-	["poteenValue"] = 0,
-	["poteenFactor"] = 1,
-	["poteenBonus"] = 0,
-	["essence"] = 0,
+	esteemValue = 0,	
+	essence = 0,
+	
+	levelValue = 40,
+	levelFactor = .05,
+	levelBonus = 0,
+	
+	-- miniValue = 0,
+	miniFactor = .02,
+	miniBonus = 0,
+	
+	realmValue = 1000,
+	realmFactor = 1000,
+	realmBonus = 0,
+	
+	tattooValue = 0,
+	tattooFactor = .001,
+	tattooBonus = 0,
+	
+	poteenValue = 1,
+	poteenFactor = .5,
+	poteenBonus = 0,
 
 }
 
-function setNumbers(name, line, wildcards)
-	
-	if name == "imbuedEsteem" then
-		valueTable.esteemValue = string.gsub(wildcards[1],",","")
-		valueTable.esteemValue = tonumber(valueTable.esteemValue)
-		calculateEssence()
-	elseif name == "esteemBonus" then
-	
-		valueSet = wildcards[1] .. "Value"
-		bonusSet = wildcards[1] .. "Bonus"
-		factorSet = wildcards[1] .. "Factor"
-		if valueSet == "realmBonus" then
-			otherMod = 1
-		else
-			otherMod = 0 
+function SetFigurineLevel(name, line, wildcards)
+	if name == "levelLine" then
+		valueTable.levelValue = tonumber(wildcards[1])
+		if valueTable.levelValue > 40 then
+			valueTable.levelValue = 40
 		end
-	
-		valueTable[valueSet] = tonumber(wildcards[2])
-		valueTable[bonusSet] = valueTable[valueSet] * valueTable[factorSet] - otherMod
-		
-		ColourNote("green", "", "You have set " .. valueSet .. " to ".. wildcards[2])
-		ColourNote("green", "", "This makes " .. bonusSet .. " set to " .. valueTable[bonusSet])
-	else
-		valueSet = string.match(name, "(%w+)Line") .. "Value"
-		bonusSet = string.match(name, "(%w+)Line") .. "Bonus"
-		factorSet = string.match(name, "(%w+)Line") .. "Factor"
-		
-		if valueSet == "levelValue" then
-			valueTable[valueSet] = tonumber(wildcards[1])
-			if valueTable[valueSet] > 40 then
-				valueTable[valueSet] = 40
-			end
-			valueTable[bonusSet] = valueTable[valueSet] * valueTable[factorSet]
-		elseif valueSet == "miniValue" then
-			valueTable[bonusSet] = valueTable.levelValue * valueTable[factorSet]
-		end
+	elseif name == "miniLine" then
+		valueTable.miniValue = valueTable.levelValue
 	end
+	
+	SetBonusNumbers()
+end
+
+function SetBonusValue(name, line, wildcards)
+	-- SESTEEM <LEVEL|TATTOO|REALM|POTEEN> <level|weight|essence|1>
+	valueSet = string.lower(wildcards[1]) .."Value"		
+	valueTable[valueSet] = tonumber(wildcards[2])				
+	ColourNote("green", "", "You have set " .. valueSet .. " to ".. wildcards[2])
+	
+	--SetBonusNumbers()
+end
+	
+function DisplayEsteemWorth(name, line, wildcards)
+	valueTable.esteemValue = string.gsub(wildcards[1],",","")
+	valueTable.esteemValue = tonumber(valueTable.esteemValue)
+	CalculateEssence()
+end
+	
+	
+function SetBonusNumbers()	
+	
+	valueTable.levelBonus = valueTable.levelFactor * valueTable.levelValue
+	valueTable.miniBonus = valueTable.miniFactor * valueTable.levelValue
+	valueTable.realmBonus = (valueTable.realmValue / valueTable.realmFactor) - 1
+	valueTable.tattooBonus = valueTable.tattooFactor * valueTable.tattooValue
+	valueTable.poteenBonus =  valueTable.poteenFactor * valueTable.poteenValue
 
 end
 
 
-function calculateEssence()
+function CalculateEssence()
 
+	SetBonusNumbers()
 	figurineBonuses = (1 + valueTable.levelBonus + valueTable.miniBonus)
 	realmTattooBonus = (1 + valueTable.realmBonus + valueTable.tattooBonus)
-	OtherBonuses = (1 + valueTable.poteenBonus)
-	esteemFullBonus = figurineBonuses * realmTattooBonus * OtherBonuses
+	otherBonuses = (1 + valueTable.poteenBonus)
+	esteemFullBonus = figurineBonuses * realmTattooBonus * otherBonuses
 
 	valueTable.essence = valueTable.esteemValue * 100 * esteemFullBonus
 	
@@ -157,9 +172,13 @@ function calculateEssence()
 			 ", PoteenBonus: " .. valueTable.poteenBonus)
 			 
 	ColourNote("lightgrey", "black", "It is worth " .. valueTable.essence .. " units of essence.")
-	
-	valueTable.levelBonus = 0
-	valueTable.miniBonus = 0
+end
+
+function howMuch(name, line, wildcards)
+	levelbonus = wildcards[3]
+	miniBonus = wildcards[4]
+	essence = wildcards[1] * 100 * (1 + levelBonus + miniBonus) * (1 + realmBonus + tattooBonus)
+	ColourNote("yellow", "black", "With " .. wildcards[1] .. " esteem and bonuses of level, mini, realm, and tattoo being at " .. levelBonus .. ", ".. miniBonus .. ", ".. realmBonus .. ", ".. tattooBonus .. ", this should be a total essence value of " .. essence)
 end
 
 function addCommas(number)	
