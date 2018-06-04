@@ -370,7 +370,6 @@ gotBottleItems = false
 
 package.path = package.path .. ";" ..  GetPluginInfo(GetPluginID(), 20) .. "?.lua"
 require "masterCurios"
-require "display"
 
 function ReadMaps(name, line, wildcards)
 
