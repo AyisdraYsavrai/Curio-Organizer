@@ -5,9 +5,9 @@ Curio Utility:
         
         Composed of the following:
                 CurioOrganizer
-                CurioRubber
                 CurioInfo
-		***I'm not responsible for any misrubs***
+		
+		CurioRubber has been removed due to IG system being created
         
        CurioOrganaizer:
                 Displays your curios pieces in a nice table.
@@ -19,13 +19,6 @@ Curio Utility:
                 will build the curio in question.
                 NOTE: FOR THIS TO WORK, YOU NEED THE masterCurios.lua FILE.
                 PUT THIS FILE WHEREVER YOU PUT THE PLUGIN.
-
-        CurioRubber:
-                Using CRUB [SINGLE] <pattern> will show a list of curios matching
-                via IG CURIOS ALL [<pattern>], and give a button to click to 
-                start the rubbing. If you use the SINGLE word, the rubber will
-                only rub doubles of your <pattern>
-                **use rubber at own risk.**
                 
         CurioInfo
         	Using CINFO <curio|collection> will display the pieces in curio, or show
@@ -45,7 +38,7 @@ Esteem to Essence:
         This gives you how much your figurine is worth.
         Probing the figurine will give you the worth and the bonuses being used.
         
-        Use 'SESTEEM (TATTOO|REALM|POTEEN) <number>' to set these bonuses.
+        Use 'SESTEEM (LEVEL|TATTOO|REALM|POTEEN) <number>' to set these bonuses.
         
         Tattoo uses weight, realm uses essence from inlfuencing one realmmob, 
         and poteen uses '.5'. You will need to reset poteen to 0 after it runs out.
